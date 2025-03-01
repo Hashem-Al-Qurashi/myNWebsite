@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Download } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -63,32 +63,37 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <h1 className="text-7xl font-bold mb-6 tracking-tight">
-              <span className="gradient-text">Future of Learning</span>
+              <span className="gradient-text">Master IELTS</span>
               <br />
-              <span className="text-foreground/90">Is Here.</span>
+              <span className="text-foreground/90">with Proven Strategies</span>
             </h1>
 
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Experience the next generation of education with AI-powered personalized learning 
-              and immersive course content.
+              Struggling with IELTS? Get expert tips, free resources, and real exam strategies 
+              to boost your score. Join thousands of successful students today!
             </p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="flex gap-6 items-center justify-center"
+              className="flex gap-6 items-center justify-center flex-wrap"
             >
               <Button 
                 size="lg" 
                 className="text-lg px-8 py-6 rounded-full bg-gradient-to-r from-primary via-cyan-500 to-primary hover:opacity-90 transition-all duration-300 hover:scale-105 shadow-lg shadow-primary/25"
               >
-                Start Learning
+                Take Free Practice Test
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <span className="text-sm text-muted-foreground">
-                No credit card required
-              </span>
+              <Button 
+                size="lg" 
+                variant="outline"
+                className="text-lg px-8 py-6 rounded-full border-primary/20 hover:bg-primary/10 transition-all duration-300"
+              >
+                Download Study Guide
+                <Download className="ml-2 h-5 w-5" />
+              </Button>
             </motion.div>
 
             {/* Stats */}
@@ -96,15 +101,15 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="grid grid-cols-3 gap-8 mt-16 max-w-2xl mx-auto"
+              className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 max-w-3xl mx-auto"
             >
               {[
-                { number: "50K+", label: "Active Students" },
-                { number: "200+", label: "Expert Courses" },
+                { number: "10K+", label: "Successful Students" },
+                { number: "Band 7+", label: "Average Score" },
                 { number: "95%", label: "Success Rate" },
               ].map((stat, i) => (
-                <div key={i} className="text-center">
-                  <h3 className="text-3xl font-bold gradient-text mb-1">{stat.number}</h3>
+                <div key={i} className="text-center bg-card/30 backdrop-blur-sm rounded-2xl p-6 border border-primary/10">
+                  <h3 className="text-3xl font-bold gradient-text mb-2">{stat.number}</h3>
                   <p className="text-sm text-muted-foreground">{stat.label}</p>
                 </div>
               ))}

@@ -11,22 +11,28 @@ import {
 
 const testimonials = [
   {
-    name: "Sarah Johnson",
-    role: "Full Stack Developer",
-    image: "https://images.unsplash.com/photo-1544972917-3529b113a469",
-    quote: "The AI-powered learning assistant helped me master complex programming concepts in record time."
+    name: "Ahmed Hassan",
+    role: "Band 7.5 Achiever",
+    location: "UAE",
+    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a",
+    quote: "Before joining, I struggled with IELTS Reading (Band 5.5). After following the proven strategies here, I achieved Band 7.5! The personalized feedback made all the difference.",
+    improvement: "5.5 → 7.5",
   },
   {
-    name: "Michael Chen",
-    role: "Data Scientist",
-    image: "https://images.unsplash.com/photo-1660463531472-a86bb8f9f48e",
-    quote: "The personalized curriculum and hands-on projects accelerated my career growth significantly."
+    name: "Sarah Chen",
+    role: "Band 8.0 Achiever",
+    location: "Singapore",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80",
+    quote: "The writing templates and speaking strategies helped me secure Band 8.0. The mock tests are incredibly close to the real exam. Worth every minute!",
+    improvement: "6.0 → 8.0",
   },
   {
-    name: "Emily Rodriguez",
-    role: "Product Designer",
-    image: "https://images.unsplash.com/photo-1509062522246-3755977927d7",
-    quote: "From beginner to professional, this platform provided the perfect learning path for my UX career."
+    name: "Maria Rodriguez",
+    role: "Band 7.0 Achiever",
+    location: "Mexico",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
+    quote: "The listening practice materials are excellent! I went from Band 6.0 to 7.0 in just 6 weeks. The step-by-step approach really works.",
+    improvement: "6.0 → 7.0",
   }
 ];
 
@@ -64,7 +70,7 @@ export default function Testimonials() {
             Success Stories
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Join thousands of learners who have transformed their careers
+            Join thousands of students who have achieved their target IELTS scores
           </p>
         </motion.div>
 
@@ -94,7 +100,13 @@ export default function Testimonials() {
                         <div className="ml-4">
                           <h4 className="font-semibold">{testimonial.name}</h4>
                           <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                          <p className="text-xs text-muted-foreground">{testimonial.location}</p>
                         </div>
+                      </div>
+                      <div className="mb-4 p-2 bg-primary/10 rounded-lg text-center">
+                        <span className="text-sm font-semibold gradient-text">
+                          Band Score Improvement: {testimonial.improvement}
+                        </span>
                       </div>
                       <p className="italic text-foreground/80">"{testimonial.quote}"</p>
                     </CardContent>

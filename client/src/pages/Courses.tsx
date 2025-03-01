@@ -8,25 +8,6 @@ import { Link } from "wouter";
 export default function Courses() {
   return (
     <div className="min-h-screen bg-background">
-      {/* Unique Bold Header */}
-      <div className="w-full py-6 bg-primary/5 backdrop-blur-sm border-b border-primary/10 sticky top-0 z-20 mb-8">
-        <div className="container mx-auto">
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ 
-              duration: 0.8,
-              type: "spring",
-              bounce: 0.4
-            }}
-            className="flex justify-center items-center"
-          >
-            <span className="text-5xl font-black rtl bg-clip-text text-transparent bg-gradient-to-r from-primary via-cyan-400 to-primary px-3 py-1 rounded-lg border-2 border-primary/20 shadow-lg shadow-primary/10 transform hover:scale-105 transition-all duration-300">
-              خاصة ومباشرة
-            </span>
-          </motion.div>
-        </div>
-      </div>
 
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
@@ -57,7 +38,7 @@ export default function Courses() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16 max-w-3xl mx-auto"
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70 rtl">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70 rtl text-center">
               دورات آيلتس متخصصة
             </h1>
             <p className="text-lg text-muted-foreground mb-8 rtl">
@@ -89,7 +70,7 @@ export default function Courses() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-6xl font-bold mb-8 rtl gradient-text leading-tight">
+            <h2 className="text-6xl font-bold mb-8 rtl gradient-text leading-tight text-center">
               إيش اللي يميز دورتي عن أي دورة ثانية؟
             </h2>
           </motion.div>
@@ -108,7 +89,7 @@ export default function Courses() {
               transition={{ delay: 0.3, duration: 0.5 }}
               className="text-center"
             >
-              <h2 className="text-8xl font-extrabold mb-6 rtl tracking-tight gradient-text">
+              <h2 className="text-8xl font-extrabold mb-6 rtl tracking-tight gradient-text text-center">
                 خاصة ومباشرة
               </h2>
               <p className="text-2xl text-foreground/90 rtl max-w-4xl mx-auto leading-relaxed">
@@ -183,7 +164,7 @@ export default function Courses() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl font-bold mb-4 rtl">نهجنا المتكامل للنجاح في الآيلتس</h2>
+            <h2 className="text-3xl font-bold mb-4 rtl text-center">نهجنا المتكامل للنجاح في الآيلتس</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto rtl">
               منهجية مدروسة من ثلاث خطوات أساسية لضمان وصولك إلى الدرجة المستهدفة
             </p>
@@ -348,7 +329,7 @@ export default function Courses() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl font-bold mb-4 rtl">ليش دورتي مختلفة؟</h2>
+            <h2 className="text-3xl font-bold mb-4 rtl text-center">ليش دورتي مختلفة؟</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto rtl">
               عشان أضمن لك أنك بتوصل للنتيجة اللي تبغاها، عندي ٤ معايير أساسية في الدورة
             </p>
@@ -489,7 +470,7 @@ export default function Courses() {
               viewport={{ once: true }}
               className="order-1 md:order-2 rtl"
             >
-              <h2 className="text-3xl font-bold mb-6">هل الدورة لك؟</h2>
+              <h2 className="text-3xl font-bold mb-6 text-center">هل الدورة لك؟</h2>
               <p className="text-lg text-muted-foreground mb-8">
                 إذا كنت فاهم أساسيات الإنجليزي، وماشي في تطوير نفسك، فممكن ما تحتاج تسجل معي. استمر، وإن شاء الله توصل!
               </p>
@@ -521,7 +502,7 @@ export default function Courses() {
           viewport={{ once: true }}
           className="max-w-3xl mx-auto text-center rtl"
         >
-          <h2 className="text-3xl font-bold mb-6">لا تخلي اختبار بسيط يكون العائق بينك وبين مستقبلك!</h2>
+          <h2 className="text-3xl font-bold mb-6 text-center">لا تخلي اختبار بسيط يكون العائق بينك وبين مستقبلك!</h2>
           <p className="text-lg text-muted-foreground mb-8">
             انضم لآلاف الطلاب اللي حققوا درجاتهم المستهدفة معنا وابدأ رحلتك نحو النجاح اليوم.
           </p>

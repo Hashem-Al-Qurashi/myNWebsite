@@ -76,9 +76,12 @@ export default function Navbar() {
                   <Moon className="h-5 w-5" />
                 )}
               </Button>
-              <Button className="rounded-full" size="sm" asChild>
-                <a href="/signin">Sign In</a>
-              </Button>
+              <Link href="/signin">
+                <Button className="rounded-full" size="sm">Sign In</Button>
+              </Link>
+              <Link href="/signup">
+                <Button className="rounded-full" size="sm">Sign Up</Button>
+              </Link>
             </div>
           </div>
         </div>

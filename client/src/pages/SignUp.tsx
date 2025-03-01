@@ -1,10 +1,13 @@
 
 import { useState } from "react";
+import { useNavigate } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { motion } from "framer-motion";
+import { apiRegister } from "@/lib/auth";
+import { useToast } from "@/components/ui/use-toast";
 
 export default function SignUp() {
   const [name, setName] = useState("");
@@ -12,10 +15,46 @@ export default function SignUp() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
+  const { toast } = useToast();
+  
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Registration logic would go here
-    console.log("Sign up attempt with:", { name, email, password });
+    
+    if (password !== confirmPassword) {
+      toast({
+        title: "Passwords don't match",
+        description: "Please make sure your passwords match",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    setIsLoading(true);
+    
+    try {
+      // Extract username from email if not provided
+      const username = email.split('@')[0];
+      
+      await apiRegister(username, email, password, name);
+      
+      toast({
+        title: "Registration successful",
+        description: "You can now sign in with your credentials",
+      });
+      
+      // Redirect to sign in page
+      navigate("/signin");
+    } catch (error) {
+      toast({
+        title: "Registration failed",
+        description: error instanceof Error ? error.message : "Please try again later",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (

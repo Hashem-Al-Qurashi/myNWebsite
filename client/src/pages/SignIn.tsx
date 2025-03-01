@@ -1,19 +1,48 @@
 
 import { useState } from "react";
+import { useNavigate } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { motion } from "framer-motion";
+import { apiLogin, useAuthStore } from "@/lib/auth";
+import { useToast } from "@/components/ui/use-toast";
 
 export default function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
+  const login = useAuthStore((state) => state.login);
+  const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Authentication logic would go here
-    console.log("Sign in attempt with:", { email, password });
+    setIsLoading(true);
+    
+    try {
+      const response = await apiLogin(email, password);
+      
+      // Store user data and token
+      login(response.user, response.token);
+      
+      toast({
+        title: "Sign in successful",
+        description: "Welcome back!",
+      });
+      
+      // Redirect to home page
+      navigate("/");
+    } catch (error) {
+      toast({
+        title: "Sign in failed",
+        description: error instanceof Error ? error.message : "Please check your credentials",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (

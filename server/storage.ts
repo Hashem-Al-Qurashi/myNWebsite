@@ -24,11 +24,10 @@ export class PostgresStorage implements IStorage {
   private db: ReturnType<typeof drizzle>;
   
   constructor() {
-    if (!process.env.DATABASE_URL) {
-      throw new Error("DATABASE_URL environment variable is required");
-    }
+    // Fallback to a local SQLite URL for development if DATABASE_URL is not set
+    const dbUrl = process.env.DATABASE_URL || 'postgres://postgres:postgres@localhost:5432/postgres';
     
-    const queryClient = postgres(process.env.DATABASE_URL);
+    const queryClient = postgres(dbUrl);
     this.db = drizzle(queryClient);
   }
 

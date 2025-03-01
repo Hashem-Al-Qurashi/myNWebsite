@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Download } from "lucide-react";
+import { ArrowRight, Download, MessageCircle } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -55,22 +55,21 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto text-center"
+          className="max-w-4xl mx-auto text-center rtl"
         >
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <h1 className="text-7xl font-bold mb-6 tracking-tight">
-              <span className="gradient-text">Master IELTS</span>
+            <h1 className="text-6xl font-bold mb-6 tracking-tight leading-tight">
+              <span className="gradient-text">احصل على درجتك المطلوبة في الآيلتس</span>
               <br />
-              <span className="text-foreground/90">with Proven Strategies</span>
+              <span className="text-foreground/90">بأسهل وأسرع طريقة!</span>
             </h1>
 
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Struggling with IELTS? Get expert tips, free resources, and real exam strategies 
-              to boost your score. Join thousands of successful students today!
+              93% من طلابنا رفعوا درجتهم بمعدل +1.5 Band خلال 8 أسابيع فقط!
             </p>
 
             <motion.div
@@ -83,16 +82,16 @@ export default function Hero() {
                 size="lg" 
                 className="text-lg px-8 py-6 rounded-full bg-gradient-to-r from-primary via-cyan-500 to-primary hover:opacity-90 transition-all duration-300 hover:scale-105 shadow-lg shadow-primary/25"
               >
-                Take Free Practice Test
-                <ArrowRight className="ml-2 h-5 w-5" />
+                سجل الآن واحجز استشارة مجانية!
+                <ArrowRight className="mr-2 h-5 w-5" />
               </Button>
               <Button 
                 size="lg" 
                 variant="outline"
                 className="text-lg px-8 py-6 rounded-full border-primary/20 hover:bg-primary/10 transition-all duration-300"
               >
-                Download Study Guide
-                <Download className="ml-2 h-5 w-5" />
+                تعرف على الدورة
+                <Download className="mr-2 h-5 w-5" />
               </Button>
             </motion.div>
 
@@ -104,15 +103,32 @@ export default function Hero() {
               className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 max-w-3xl mx-auto"
             >
               {[
-                { number: "10K+", label: "Successful Students" },
-                { number: "Band 7+", label: "Average Score" },
-                { number: "95%", label: "Success Rate" },
+                { number: "+٩٣٪", label: "نسبة النجاح" },
+                { number: "+١٫٥", label: "معدل تحسن الدرجة" },
+                { number: "+١٠٠٠", label: "طالب ناجح" },
               ].map((stat, i) => (
                 <div key={i} className="text-center bg-card/30 backdrop-blur-sm rounded-2xl p-6 border border-primary/10">
                   <h3 className="text-3xl font-bold gradient-text mb-2">{stat.number}</h3>
                   <p className="text-sm text-muted-foreground">{stat.label}</p>
                 </div>
               ))}
+            </motion.div>
+
+            {/* WhatsApp Button */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 1 }}
+              className="fixed bottom-6 left-6 z-50"
+            >
+              <Button
+                size="lg"
+                className="rounded-full bg-green-500 hover:bg-green-600 transition-all duration-300 shadow-lg"
+                onClick={() => window.open('https://wa.me/your-number', '_blank')}
+              >
+                <MessageCircle className="h-6 w-6 mr-2" />
+                تواصل معنا عبر واتساب
+              </Button>
             </motion.div>
           </motion.div>
         </motion.div>

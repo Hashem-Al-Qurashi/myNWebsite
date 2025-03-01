@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -32,6 +34,13 @@
 
   body {
     @apply bg-background text-foreground overflow-x-hidden font-sans tracking-tight;
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
+  }
+
+  /* RTL support for Arabic text */
+  .rtl {
+    direction: rtl;
+    text-align: right;
   }
 
   /* Smooth scrolling behavior */

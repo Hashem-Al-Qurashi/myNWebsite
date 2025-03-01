@@ -6,25 +6,26 @@
 
 @layer base {
   :root {
-    --background: 210 40% 94%;
-    --foreground: 230 25% 10%;
-    --card: 210 40% 92%;
-    --card-foreground: 230 25% 10%;
-    --popover: 210 40% 92%;
-    --popover-foreground: 230 25% 10%;
-    --primary: 210 100% 50%;
+    /* Match light mode values to be consistent with the AboutUs page */
+    --background: 210 30% 92%;
+    --foreground: 222 47% 20%;
+    --card: 0 0% 96%;
+    --card-foreground: 222 47% 20%;
+    --popover: 0 0% 96%;
+    --popover-foreground: 222 47% 20%;
+    --primary: 210 100% 45%;
     --primary-foreground: 210 40% 98%;
-    --secondary: 230 25% 86%;
-    --secondary-foreground: 230 25% 10%;
-    --muted: 230 25% 86%;
-    --muted-foreground: 230 25% 40%;
-    --accent: 210 100% 50%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 84% 60%;
+    --secondary: 210 40% 90%;
+    --secondary-foreground: 222 47% 20%;
+    --muted: 210 40% 90%;
+    --muted-foreground: 215 25% 40%;
+    --accent: 210 40% 90%;
+    --accent-foreground: 222 47% 20%;
+    --destructive: 0 80% 40%;
     --destructive-foreground: 210 40% 98%;
-    --border: 230 25% 80%;
-    --input: 230 25% 80%;
-    --ring: 210 100% 50%;
+    --border: 214 32% 80%;
+    --input: 214 32% 80%;
+    --ring: 215 20% 60%;
     --radius: 1rem;
   }
 
@@ -145,27 +146,9 @@
   background-size: 30px 30px;
 }
 
-/* Light mode styles - darker version */
+/* Light mode overrides - consolidated from AboutUs page */
 .light {
-  --background: 210 30% 92%; /* Slightly darker background */
-  --foreground: 222 47% 20%;
-  --card: 0 0% 96%;
-  --card-foreground: 222 47% 20%;
-  --popover: 0 0% 96%;
-  --popover-foreground: 222 47% 20%;
-  --primary: 210 100% 45%; /* Darker primary */
-  --primary-foreground: 210 40% 98%;
-  --secondary: 210 40% 90%;
-  --secondary-foreground: 222 47% 20%;
-  --muted: 210 40% 90%;
-  --muted-foreground: 215 25% 40%; /* Darker muted text */
-  --accent: 210 40% 90%;
-  --accent-foreground: 222 47% 20%;
-  --destructive: 0 80% 40%;
-  --destructive-foreground: 210 40% 98%;
-  --border: 214 32% 80%;
-  --input: 214 32% 80%;
-  --ring: 215 20% 60%;
+  /* Light mode will inherit styles from :root - no need for duplicates */
 }
 
 /* Theme transition effects */

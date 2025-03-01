@@ -4,8 +4,8 @@ import { useState, useEffect } from 'react';
 export function useTheme() {
   const [isDarkMode, setIsDarkMode] = useState(() => {
     const storedTheme = localStorage.getItem('theme');
-    return storedTheme === 'dark' || 
-      (!storedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    // Default to light mode to match AboutUs page style
+    return storedTheme === 'dark';
   });
 
   useEffect(() => {

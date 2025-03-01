@@ -6,12 +6,14 @@ import Navbar from "@/components/Navbar";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import Course from "@/pages/Course";
+import SignIn from "@/pages/SignIn";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/course/:id" component={Course} />
+      <Route path="/signin" component={SignIn} />
       <Route component={NotFound} />
     </Switch>
   );

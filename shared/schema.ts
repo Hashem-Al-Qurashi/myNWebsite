@@ -2,6 +2,12 @@ import { pgTable, text, serial, integer, boolean, timestamp } from "drizzle-orm/
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
+export const users = pgTable("users", {
+  id: serial("id").primaryKey(),
+  username: text("username").notNull().unique(),
+  password: text("password").notNull(),
+});
+
 export const courses = pgTable("courses", {
   id: serial("id").primaryKey(),
   title: text("title").notNull(),
@@ -27,13 +33,19 @@ export const progress = pgTable("progress", {
   lastAccessed: timestamp("last_accessed").notNull(),
 });
 
+// Schema for inserting data
+export const insertUserSchema = createInsertSchema(users).omit({ id: true });
 export const insertCourseSchema = createInsertSchema(courses).omit({ id: true });
 export const insertLessonSchema = createInsertSchema(lessons).omit({ id: true });
 export const insertProgressSchema = createInsertSchema(progress).omit({ id: true });
 
+// Types for database operations
+export type User = typeof users.$inferSelect;
 export type Course = typeof courses.$inferSelect;
 export type Lesson = typeof lessons.$inferSelect;
 export type Progress = typeof progress.$inferSelect;
+
+export type InsertUser = z.infer<typeof insertUserSchema>;
 export type InsertCourse = z.infer<typeof insertCourseSchema>;
 export type InsertLesson = z.infer<typeof insertLessonSchema>;
 export type InsertProgress = z.infer<typeof insertProgressSchema>;

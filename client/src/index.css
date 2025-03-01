@@ -6,6 +6,29 @@
 
 @layer base {
   :root {
+    --background: 210 40% 98%;
+    --foreground: 230 25% 10%;
+    --card: 210 40% 96%;
+    --card-foreground: 230 25% 10%;
+    --popover: 210 40% 96%;
+    --popover-foreground: 230 25% 10%;
+    --primary: 210 100% 50%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 230 25% 90%;
+    --secondary-foreground: 230 25% 10%;
+    --muted: 230 25% 90%;
+    --muted-foreground: 230 25% 40%;
+    --accent: 210 100% 50%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 230 25% 85%;
+    --input: 230 25% 85%;
+    --ring: 210 100% 50%;
+    --radius: 1rem;
+  }
+
+  .dark {
     --background: 230 25% 5%;
     --foreground: 210 20% 98%;
     --card: 230 25% 7%;
@@ -25,7 +48,6 @@
     --border: 230 25% 15%;
     --input: 230 25% 15%;
     --ring: 210 100% 50%;
-    --radius: 1rem;
   }
 
   * {
@@ -105,4 +127,11 @@
   background-image: linear-gradient(to right, rgba(var(--primary-rgb), 0.1) 1px, transparent 1px),
                     linear-gradient(to bottom, rgba(var(--primary-rgb), 0.1) 1px, transparent 1px);
   background-size: 30px 30px;
+}
+
+/* Theme transition effects */
+*, *::before, *::after {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
 }

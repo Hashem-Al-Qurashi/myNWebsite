@@ -45,7 +45,7 @@ export default function Navbar() {
                 { name: "Pricing", path: "/pricing" },
               ].map((item) => (
                 <Link key={item.path} href={item.path}>
-                  <div className="relative group py-2 cursor-pointer">
+                  <a className="relative group py-2">
                     <span className="text-foreground/80 group-hover:text-foreground transition-colors">
                       {item.name}
                     </span>
@@ -58,7 +58,7 @@ export default function Navbar() {
                       whileHover={{ scaleX: 1 }}
                       transition={{ duration: 0.2 }}
                     />
-                  </div>
+                  </a>
                 </Link>
               ))}
             </nav>

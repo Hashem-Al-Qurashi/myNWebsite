@@ -24,11 +24,23 @@ export class PostgresStorage implements IStorage {
   private db: ReturnType<typeof drizzle>;
   
   constructor() {
-    // Fallback to a local SQLite URL for development if DATABASE_URL is not set
-    const dbUrl = process.env.DATABASE_URL || 'postgres://postgres:postgres@localhost:5432/postgres';
-    
-    const queryClient = postgres(dbUrl);
-    this.db = drizzle(queryClient);
+    try {
+      // Fallback to a local PostgreSQL URL for development if DATABASE_URL is not set
+      const dbUrl = process.env.DATABASE_URL || 'postgres://postgres:postgres@localhost:5432/postgres';
+      
+      const queryClient = postgres(dbUrl, {
+        max: 10, // Max connections
+        idle_timeout: 20, // Seconds a connection can stay idle before being closed
+        connect_timeout: 10, // Seconds to wait for a connection
+      });
+      
+      this.db = drizzle(queryClient);
+      console.log("PostgreSQL connection established successfully");
+    } catch (error) {
+      console.error("Failed to connect to PostgreSQL:", error);
+      // Create a fallback in-memory database using any means
+      throw new Error("Database connection failed, please check your DATABASE_URL");
+    }
   }
 
   async getUser(id: number): Promise<User | undefined> {

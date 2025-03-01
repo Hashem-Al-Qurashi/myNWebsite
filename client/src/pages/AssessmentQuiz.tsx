@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -8,10 +7,11 @@ import { Label } from "@/components/ui/label";
 import { Progress } from "@/components/ui/progress";
 import { CheckCircle, ArrowRight, Code, Cpu, Database } from "lucide-react";
 
-// Sample quiz questions
+// Sample quiz questions -  Updated to include audio questions
 const questions = [
   {
     id: 1,
+    type: 'reading', // Added type field
     question: "Choose the correct sentence:",
     options: [
       { id: "a", text: "She don't like coffee." },
@@ -23,6 +23,7 @@ const questions = [
   },
   {
     id: 2,
+    type: 'reading', // Added type field
     question: "Complete the sentence: If I _____ rich, I would buy a house.",
     options: [
       { id: "a", text: "am" },
@@ -34,6 +35,7 @@ const questions = [
   },
   {
     id: 3,
+    type: 'reading', // Added type field
     question: "Choose the word that means \"to make something better\":",
     options: [
       { id: "a", text: "Worsen" },
@@ -45,6 +47,7 @@ const questions = [
   },
   {
     id: 4,
+    type: 'reading', // Added type field
     question: "Choose the correct preposition: I'm arriving _____ Dubai next week.",
     options: [
       { id: "a", text: "at" },
@@ -56,6 +59,7 @@ const questions = [
   },
   {
     id: 5,
+    type: 'reading', // Added type field
     question: "Which sentence is in the passive voice?",
     options: [
       { id: "a", text: "They built this house in 1990." },
@@ -67,6 +71,7 @@ const questions = [
   },
   {
     id: 6,
+    type: 'reading', // Added type field
     question: "Select the word with the correct spelling:",
     options: [
       { id: "a", text: "Accomodation" },
@@ -78,6 +83,7 @@ const questions = [
   },
   {
     id: 7,
+    type: 'reading', // Added type field
     question: "Choose the correct comparative form: This book is _____ than the other one.",
     options: [
       { id: "a", text: "interestinger" },
@@ -89,6 +95,7 @@ const questions = [
   },
   {
     id: 8,
+    type: 'reading', // Added type field
     question: "Which word is a synonym for \"happy\"?",
     options: [
       { id: "a", text: "Sad" },
@@ -100,6 +107,7 @@ const questions = [
   },
   {
     id: 9,
+    type: 'reading', // Added type field
     question: "Complete the sentence: She _____ to the cinema last night.",
     options: [
       { id: "a", text: "go" },
@@ -111,6 +119,7 @@ const questions = [
   },
   {
     id: 10,
+    type: 'reading', // Added type field
     question: "Choose the correct article: I saw _____ interesting movie yesterday.",
     options: [
       { id: "a", text: "a" },
@@ -122,6 +131,7 @@ const questions = [
   },
   {
     id: 11,
+    type: 'reading', // Added type field
     question: "Which sentence contains a relative clause?",
     options: [
       { id: "a", text: "I like swimming in the sea." },
@@ -133,6 +143,7 @@ const questions = [
   },
   {
     id: 12,
+    type: 'reading', // Added type field
     question: "Choose the correct phrasal verb: Can you _____ the light when you leave?",
     options: [
       { id: "a", text: "turn up" },
@@ -144,6 +155,7 @@ const questions = [
   },
   {
     id: 13,
+    type: 'reading', // Added type field
     question: "Which sentence uses the present perfect tense correctly?",
     options: [
       { id: "a", text: "I've been to Paris last year." },
@@ -155,6 +167,7 @@ const questions = [
   },
   {
     id: 14,
+    type: 'reading', // Added type field
     question: "Choose the appropriate response to \"How do you do?\"",
     options: [
       { id: "a", text: "I'm fine, thank you." },
@@ -166,6 +179,7 @@ const questions = [
   },
   {
     id: 15,
+    type: 'reading', // Added type field
     question: "Identify the adverb in the sentence: \"She sings beautifully.\"",
     options: [
       { id: "a", text: "She" },
@@ -177,6 +191,7 @@ const questions = [
   },
   {
     id: 16,
+    type: 'reading', // Added type field
     question: "Choose the correct conditional form: If it _____ tomorrow, we'll go to the beach.",
     options: [
       { id: "a", text: "rains" },
@@ -188,6 +203,7 @@ const questions = [
   },
   {
     id: 17,
+    type: 'reading', // Added type field
     question: "Which word has the same meaning as \"sufficient\"?",
     options: [
       { id: "a", text: "Excessive" },
@@ -199,6 +215,7 @@ const questions = [
   },
   {
     id: 18,
+    type: 'reading', // Added type field
     question: "Choose the correct form: By the time I arrived, they _____ for two hours.",
     options: [
       { id: "a", text: "were waiting" },
@@ -210,6 +227,7 @@ const questions = [
   },
   {
     id: 19,
+    type: 'reading', // Added type field
     question: "Which sentence contains a gerund?",
     options: [
       { id: "a", text: "She wants to swim." },
@@ -221,6 +239,7 @@ const questions = [
   },
   {
     id: 20,
+    type: 'reading', // Added type field
     question: "Choose the correct modal verb: You _____ smoke in the hospital.",
     options: [
       { id: "a", text: "can't" },
@@ -232,6 +251,7 @@ const questions = [
   },
   {
     id: 21,
+    type: 'reading', // Added type field
     question: "Which sentence uses the subjunctive mood?",
     options: [
       { id: "a", text: "I wish I were taller." },
@@ -243,6 +263,7 @@ const questions = [
   },
   {
     id: 22,
+    type: 'reading', // Added type field
     question: "Choose the word with the correct prefix: The medicine had an _____ effect on his health.",
     options: [
       { id: "a", text: "imbeneficial" },
@@ -254,6 +275,7 @@ const questions = [
   },
   {
     id: 23,
+    type: 'reading', // Added type field
     question: "Identify the correct sentence structure:",
     options: [
       { id: "a", text: "Although it was raining, but we went out." },
@@ -265,6 +287,7 @@ const questions = [
   },
   {
     id: 24,
+    type: 'reading', // Added type field
     question: "Choose the correct idiomatic expression: The test was very easy. It was a _____.",
     options: [
       { id: "a", text: "piece of bread" },
@@ -276,6 +299,7 @@ const questions = [
   },
   {
     id: 25,
+    type: 'reading', // Added type field
     question: "Which word is a countable noun?",
     options: [
       { id: "a", text: "Water" },
@@ -284,6 +308,19 @@ const questions = [
       { id: "d", text: "Furniture" }
     ],
     correctAnswer: "c"
+  },
+  {
+    id: 26,
+    type: 'listening', // Added type field
+    question: "Listen to the audio and choose the correct answer.",
+    audioUrl: '/audio/listening-question-1.mp3', // Example audio URL - replace with your actual URL
+    options: [
+      { id: "a", text: "Option A" },
+      { id: "b", text: "Option B" },
+      { id: "c", text: "Option C" },
+      { id: "d", text: "Option D" }
+    ],
+    correctAnswer: "a"
   }
 ];
 
@@ -299,13 +336,13 @@ export default function AssessmentQuiz() {
   const [selectedOption, setSelectedOption] = useState("");
   const [score, setScore] = useState(0);
   const [quizCompleted, setQuizCompleted] = useState(false);
-  
+
   const handleNext = () => {
     // Check if answer is correct
     if (selectedOption === questions[currentQuestion].correctAnswer) {
       setScore(score + 1);
     }
-    
+
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
       setSelectedOption("");
@@ -313,13 +350,13 @@ export default function AssessmentQuiz() {
       setQuizCompleted(true);
     }
   };
-  
+
   const determineLevel = () => {
     return levels.find(level => level.score.includes(score)) || levels[0];
   };
-  
+
   const progress = ((currentQuestion + 1) / questions.length) * 100;
-  
+
   return (
     <div className="min-h-screen bg-background py-12">
       <div className="container mx-auto px-4">
@@ -333,7 +370,7 @@ export default function AssessmentQuiz() {
           <p className="text-muted-foreground text-center mb-8 text-lg rtl">
             أجب على الأسئلة التالية لتحديد مستواك في اللغة الإنجليزية
           </p>
-          
+
           {!quizCompleted ? (
             <Card className="border border-primary/10 shadow-lg">
               <CardContent className="p-6">
@@ -345,7 +382,7 @@ export default function AssessmentQuiz() {
                     </span>
                     <span className="font-mono text-sm">{Math.round(progress)}%</span>
                   </div>
-                  
+
                   {/* Tech-inclined progress bar */}
                   <div className="w-full h-3 bg-primary/10 rounded-full overflow-hidden relative">
                     <div 
@@ -386,7 +423,7 @@ export default function AssessmentQuiz() {
                       </div>
                     </motion.div>
                   </div>
-                
+
                   <style jsx global>{`
                     @keyframes scanning {
                       0% { background-position: -100% 0; }
@@ -394,12 +431,28 @@ export default function AssessmentQuiz() {
                     }
                   `}</style>
                 </div>
-                
+
                 <h2 className="text-xl font-semibold mb-6 flex items-center">
                   <Code className="mr-2 text-primary h-5 w-5" />
                   {questions[currentQuestion].question}
                 </h2>
-                
+
+                {/* Audio player for listening questions */}
+                {questions[currentQuestion].type === 'listening' && (
+                  <div className="mb-6 bg-primary/5 rounded-lg p-4 flex flex-col items-center">
+                    <audio 
+                      controls 
+                      src={questions[currentQuestion].audioUrl}
+                      className="w-full max-w-md mb-2"
+                    >
+                      Your browser does not support the audio element.
+                    </audio>
+                    <p className="text-sm text-muted-foreground">
+                      Listen to the audio carefully before selecting your answer
+                    </p>
+                  </div>
+                )}
+
                 <RadioGroup value={selectedOption} onValueChange={setSelectedOption} className="space-y-3">
                   {questions[currentQuestion].options.map((option) => (
                     <div key={option.id} className="flex items-center">
@@ -417,7 +470,7 @@ export default function AssessmentQuiz() {
                     </div>
                   ))}
                 </RadioGroup>
-                
+
                 <Button 
                   className="mt-8 w-full"
                   onClick={handleNext}
@@ -442,12 +495,12 @@ export default function AssessmentQuiz() {
                   <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6">
                     <CheckCircle className="h-10 w-10 text-green-600" />
                   </div>
-                  
+
                   <h2 className="text-2xl font-bold mb-2">Assessment Complete!</h2>
                   <p className="text-muted-foreground mb-6">
                     You scored {score} out of {questions.length}
                   </p>
-                  
+
                   <div className="bg-primary/5 p-6 rounded-lg mb-6">
                     <h3 className="text-xl font-semibold mb-2 flex items-center justify-center">
                       <Database className="mr-2 h-5 w-5 text-primary" />
@@ -455,7 +508,7 @@ export default function AssessmentQuiz() {
                     </h3>
                     <p>{determineLevel().description}</p>
                   </div>
-                  
+
                   <Button className="w-full" onClick={() => window.location.href = "/"}>
                     Return to Home
                   </Button>

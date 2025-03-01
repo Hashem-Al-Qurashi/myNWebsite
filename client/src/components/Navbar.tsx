@@ -89,3 +89,29 @@ export default function Navbar() {
     </motion.nav>
   );
 }
+
+
+// New Courses Page Component
+import React from 'react';
+
+const CoursesPage = () => {
+  const courseData = [
+    { title: "Achieve your IELTS goal the easiest and fastest way!", description: "Develop your four skills: Listening, Reading, Writing, and Speaking. Learn smart techniques to solve questions quickly and accurately. Practice with at least 7 full mock tests to build confidence and manage your time effectively." },
+    { title: "Master IELTS Techniques", description: "Learn how to read a question and find the answer before even finishing reading the options; How to use every second in the exam in the best way; How to make the writing and speaking sections your game." },
+    { title: "IELTS Practice and Preparation", description: "Practice makes perfect!  Regular practice will turn techniques into automatic responses, accustom you to time pressure, and help maintain focus.  Includes many mock tests." },
+  ];
+
+  return (
+    <div className="container mx-auto p-8">
+      <h1 className="text-3xl font-bold mb-4">IELTS Courses</h1>
+      {courseData.map((course, index) => (
+        <div key={index} className="mb-6 border p-4 rounded-lg shadow-md">
+          <h2 className="text-xl font-bold mb-2">{course.title}</h2>
+          <p>{course.description}</p>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default CoursesPage;

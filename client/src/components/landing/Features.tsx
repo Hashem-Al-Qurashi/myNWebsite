@@ -52,30 +52,41 @@ export default function Features() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: feature.delay }}
+              transition={{ 
+                duration: 0.5, 
+                delay: feature.delay,
+                type: "spring",
+                stiffness: 50 
+              }}
               viewport={{ once: true }}
+              whileHover={{ scale: 1.03 }}
+              className="group"
             >
-              <Card className="relative overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 bg-card/50 backdrop-blur-sm border-primary/10">
+              <Card className="relative overflow-hidden h-full border-0 bg-gradient-to-br from-background to-secondary/50 backdrop-blur-sm shadow-md hover:shadow-xl transition-all duration-300">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
                 <CardHeader>
-                  <div className="mb-4 relative">
-                    <div className="absolute inset-0 bg-primary/10 rounded-full blur-2xl transform -translate-y-1/2" />
-                    <feature.icon className="h-12 w-12 text-primary relative" />
+                  <div className="mb-6 relative">
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-full blur-2xl transform -translate-y-1/2" />
+                    <div className="relative h-14 w-14 flex items-center justify-center rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 p-2">
+                      <feature.icon className="h-8 w-8 text-primary" />
+                    </div>
                   </div>
-                  <CardTitle className="text-xl">{feature.title}</CardTitle>
+                  <CardTitle className="text-2xl font-bold">{feature.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">
+                  <p className="text-muted-foreground text-base">
                     {feature.description}
                   </p>
                 </CardContent>
-                {/* Hover effect overlay */}
-                <div className="absolute inset-0 bg-primary/5 opacity-0 hover:opacity-100 transition-opacity duration-300" />
+
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
               </Card>
             </motion.div>
           ))}

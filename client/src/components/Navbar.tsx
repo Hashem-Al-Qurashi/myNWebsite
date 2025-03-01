@@ -1,68 +1,85 @@
-import { Link } from "wouter";
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "wouter";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { useAuth } from "@/lib/auth";
+import { Moon, Sun } from "lucide-react";
 
 export default function Navbar() {
-  const { user, signOut } = useAuth();
+  const [location] = useLocation();
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+    document.documentElement.classList.toggle("dark");
+  };
 
   return (
     <motion.nav
-      initial={{ y: -20, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.3 }}
-      className="backdrop-blur-lg bg-background/90 sticky top-0 z-50 w-full border-b"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? "bg-background/80 backdrop-blur-lg border-b" : ""
+      }`}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.6 }}
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="flex h-16 justify-between">
-          <div className="flex">
-            <div className="flex flex-shrink-0 items-center">
-              <Link href="/">
-                <span className="cursor-pointer text-xl font-bold gradient-text">IELTS Mastery</span>
-              </Link>
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-16">
+          <Link href="/">
+            <a className="text-xl font-bold text-primary">EduPro</a>
+          </Link>
+
+          <div className="flex items-center gap-8">
+            <nav className="hidden md:flex gap-6">
+              {[
+                { name: "Courses", path: "/courses" },
+                { name: "About", path: "/about" },
+                { name: "Pricing", path: "/pricing" },
+              ].map((item) => (
+                <Link key={item.path} href={item.path}>
+                  <a className="relative group py-2">
+                    <span className="text-foreground/80 group-hover:text-foreground transition-colors">
+                      {item.name}
+                    </span>
+                    <motion.span
+                      className="absolute bottom-0 left-0 w-full h-0.5 bg-primary"
+                      initial={{ scaleX: 0 }}
+                      animate={{
+                        scaleX: location === item.path ? 1 : 0,
+                      }}
+                      whileHover={{ scaleX: 1 }}
+                      transition={{ duration: 0.2 }}
+                    />
+                  </a>
+                </Link>
+              ))}
+            </nav>
+
+            <div className="flex items-center gap-4">
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={toggleDarkMode}
+                className="rounded-full"
+              >
+                {isDarkMode ? (
+                  <Sun className="h-5 w-5" />
+                ) : (
+                  <Moon className="h-5 w-5" />
+                )}
+              </Button>
+              <Button className="rounded-full" size="sm" asChild>
+                <a href="/signin">Sign In</a>
+              </Button>
             </div>
-            <div className="ml-6 hidden md:flex md:space-x-8">
-              <Link href="/courses">
-                <span className="cursor-pointer inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium hover:border-primary/50 hover:text-primary">
-                  Courses
-                </span>
-              </Link>
-              <Link href="/pricing">
-                <span className="cursor-pointer inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium hover:border-primary/50 hover:text-primary">
-                  Pricing
-                </span>
-              </Link>
-              <Link href="/resources">
-                <span className="cursor-pointer inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium hover:border-primary/50 hover:text-primary">
-                  Resources
-                </span>
-              </Link>
-            </div>
-          </div>
-          <div className="flex items-center">
-            {user ? (
-              <div className="flex items-center space-x-4">
-                <Link href="/dashboard">
-                  <span className="cursor-pointer inline-flex items-center rounded-md bg-primary/10 px-3 py-1.5 text-sm font-medium text-primary">
-                    Dashboard
-                  </span>
-                </Link>
-                <Button variant="ghost" onClick={signOut}>Sign Out</Button>
-              </div>
-            ) : (
-              <div className="flex items-center space-x-4">
-                <Link href="/sign-in">
-                  <span className="cursor-pointer inline-flex items-center text-sm font-medium text-muted-foreground hover:text-foreground">
-                    Sign In
-                  </span>
-                </Link>
-                <Link href="/sign-up">
-                  <span className="cursor-pointer inline-flex items-center rounded-md bg-primary px-3 py-1.5 text-sm font-medium text-primary-foreground hover:bg-primary/80">
-                    Sign Up
-                  </span>
-                </Link>
-              </div>
-            )}
           </div>
         </div>
       </div>

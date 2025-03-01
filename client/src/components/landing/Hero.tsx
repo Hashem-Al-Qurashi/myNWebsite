@@ -82,7 +82,7 @@ export default function Hero() {
                 size="lg" 
                 className="text-lg px-8 py-6 rounded-full bg-gradient-to-r from-primary via-cyan-500 to-primary hover:opacity-90 transition-all duration-300 hover:scale-105 shadow-lg shadow-primary/25"
               >
-                سجل الآن واحجز استشارة مجانية!
+                حدد مستواك!
                 <ArrowRight className="mr-2 h-5 w-5" />
               </Button>
               <Button 
@@ -90,7 +90,7 @@ export default function Hero() {
                 variant="outline"
                 className="text-lg px-8 py-6 rounded-full border-primary/20 hover:bg-primary/10 transition-all duration-300"
               >
-                تعرف على الدورة
+                خطة مذاكرة ترفعك درجة كاملة مجاناً
                 <Download className="mr-2 h-5 w-5" />
               </Button>
             </motion.div>

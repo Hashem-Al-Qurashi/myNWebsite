@@ -5,26 +5,26 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 const features = [
   {
     icon: Brain,
-    title: "AI-Powered Learning",
-    description: "Personalized learning paths adapt to your style and pace",
+    title: "1500+ سؤال تفاعلي",
+    description: " تدريب يغطي كل أنواع الأسئلة",
     delay: 0.1
   },
   {
     icon: Target,
-    title: "Track Progress",
-    description: "Watch your skills grow with interactive progress tracking",
+    title: "تحليل دقيق لمستواك",
+    description: "تعرف نقاط قوتك وضعفك قبل ما تبدأ",
     delay: 0.2
   },
   {
     icon: BookOpen,
-    title: "Premium Content",
-    description: "Access expert-curated courses and real-world projects",
+    title: " متابعة شخصية أسبوعية",
+    description: "نساعدك تحسن مستواك خطوة بخطوة",
     delay: 0.3
   },
   {
     icon: Bot,
-    title: "24/7 AI Assistant",
-    description: "Get instant help from our intelligent tutoring system",
+    title: "خطط دراسية مرنة",
+    description: "تناسب جدولك مهما كنت مشغول",
     delay: 0.4
   }
 ];
@@ -45,11 +45,9 @@ export default function Features() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl font-bold mb-4">
-            Why Choose Our Platform
-          </h2>
+           وش اللي يميز دورتنا؟          </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Experience the future of learning with our cutting-edge features
-          </p>
+          دورة الآيلتس الأقوى – 93% من طلابنا رفعوا درجتهم بمعدل  +1.5 درجة خلال 8 أسابيع فقط          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

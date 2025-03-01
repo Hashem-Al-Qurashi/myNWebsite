@@ -47,37 +47,23 @@ app.use((req, res, next) => {
     throw err;
   });
 
+  // importantly only setup vite in development and after
+  // setting up all the other routes so the catch-all route
+  // doesn't interfere with the other routes
   if (app.get("env") === "development") {
     await setupVite(app, server);
   } else {
     serveStatic(app);
   }
 
-  // ALWAYS serve on port 5000 as per guidelines
+  // ALWAYS serve the app on port 5000
+  // this serves both the API and the client
   const port = 5000;
-  log(`Attempting to start server on port ${port}`);
-
-  server.on('error', (e: any) => {
-    if (e.code === 'EADDRINUSE') {
-      log(`Port ${port} is already in use, attempting to close existing connections`);
-      server.close();
-      setTimeout(() => {
-        server.listen({
-          port,
-          host: "0.0.0.0",
-          reusePort: true,
-        });
-      }, 1000);
-    } else {
-      log(`Server error: ${e.message}`);
-    }
-  });
-
   server.listen({
     port,
     host: "0.0.0.0",
     reusePort: true,
   }, () => {
-    log(`Server successfully started on port ${port}`);
+    log(`serving on port ${port}`);
   });
 })();

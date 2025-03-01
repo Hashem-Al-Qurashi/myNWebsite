@@ -75,3 +75,10 @@
       hsl(230, 25%, 5%);
   }
 }
+
+/* Background patterns */
+.bg-grid-pattern {
+  background-image: linear-gradient(to right, rgba(var(--primary-rgb), 0.1) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(var(--primary-rgb), 0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
+}

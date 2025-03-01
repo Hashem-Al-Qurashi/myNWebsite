@@ -59,6 +59,80 @@ export default function Courses() {
       </section>
 
       {/* Main Three-Step Approach */}
+      {/* What makes our courses special */}
+      <section className="py-20 bg-gradient-to-b from-background to-muted/30 relative">
+        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl font-bold mb-4 rtl gradient-text">
+              إيش اللي يميز دورتي عن أي دورة ثانية؟
+            </h2>
+          </motion.div>
+          
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="bg-card/70 backdrop-blur-sm rounded-xl p-6 border border-primary/10 hover:border-primary/30 transition-all shadow-lg hover:shadow-primary/5"
+            >
+              <div className="h-12 w-12 rounded-full bg-primary/20 flex items-center justify-center mb-4 mx-auto">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold mb-3 rtl text-center">دورة مخصصة وشخصية</h3>
+              <p className="text-muted-foreground rtl text-center">
+                بكل بساطة، دورتي خاصة ومباشرة، مو دورة معلبة للجميع! لأنك مميز وتستاهل اهتمام كامل، أكون معاك بتركيزي الكامل.
+              </p>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="bg-card/70 backdrop-blur-sm rounded-xl p-6 border border-primary/10 hover:border-primary/30 transition-all shadow-lg hover:shadow-primary/5"
+            >
+              <div className="h-12 w-12 rounded-full bg-primary/20 flex items-center justify-center mb-4 mx-auto">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold mb-3 rtl text-center">دعم متواصل ومباشر</h3>
+              <p className="text-muted-foreground rtl text-center">
+                عندك التواصل المباشر معي على واتساب 24/7 لأي استفسار أو دعم تحتاجه، أسمعك، أصحح لك، وأوجهك خطوة بخطوة.
+              </p>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="bg-card/70 backdrop-blur-sm rounded-xl p-6 border border-primary/10 hover:border-primary/30 transition-all shadow-lg hover:shadow-primary/5"
+            >
+              <div className="h-12 w-12 rounded-full bg-primary/20 flex items-center justify-center mb-4 mx-auto">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold mb-3 rtl text-center">فعالية مضمونة</h3>
+              <p className="text-muted-foreground rtl text-center">
+                كل دقيقة في المحاضرة محسوبة لصالحك، لأنك جالس مع خبير في الآيلتس. مصممة لك، عشان تضمن أعلى درجة بأقل وقت وأفضل طريقة!
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
           <motion.div

@@ -85,7 +85,7 @@ export default function Navbar() {
               <Button
                 variant="ghost"
                 size="icon"
-                onClick={toggleDarkMode}
+                onClick={() => toggleDarkMode()}
                 className="rounded-full"
               >
                 {isDarkMode ? (

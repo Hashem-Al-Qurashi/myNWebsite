@@ -6,24 +6,24 @@
 
 @layer base {
   :root {
-    --background: 210 40% 98%;
+    --background: 210 40% 94%;
     --foreground: 230 25% 10%;
-    --card: 210 40% 96%;
+    --card: 210 40% 92%;
     --card-foreground: 230 25% 10%;
-    --popover: 210 40% 96%;
+    --popover: 210 40% 92%;
     --popover-foreground: 230 25% 10%;
     --primary: 210 100% 50%;
     --primary-foreground: 210 40% 98%;
-    --secondary: 230 25% 90%;
+    --secondary: 230 25% 86%;
     --secondary-foreground: 230 25% 10%;
-    --muted: 230 25% 90%;
+    --muted: 230 25% 86%;
     --muted-foreground: 230 25% 40%;
     --accent: 210 100% 50%;
     --accent-foreground: 210 40% 98%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
-    --border: 230 25% 85%;
-    --input: 230 25% 85%;
+    --border: 230 25% 80%;
+    --input: 230 25% 80%;
     --ring: 210 100% 50%;
     --radius: 1rem;
   }
@@ -124,9 +124,20 @@
 
 /* Background patterns */
 .bg-grid-pattern {
-  background-image: linear-gradient(to right, rgba(var(--primary-rgb), 0.1) 1px, transparent 1px),
-                    linear-gradient(to bottom, rgba(var(--primary-rgb), 0.1) 1px, transparent 1px);
+  background-image: linear-gradient(to right, rgba(var(--primary-rgb), 0.15) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(var(--primary-rgb), 0.15) 1px, transparent 1px);
   background-size: 30px 30px;
+}
+
+/* Light mode grid background */
+.light .grid-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: linear-gradient(to right, rgba(0, 100, 255, 0.08) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(0, 100, 255, 0.08) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
 }
 
 /* Theme transition effects */

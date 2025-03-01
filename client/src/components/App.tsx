@@ -5,9 +5,11 @@ import { GridBackground } from './GridBackground';
 // This is a wrapper component to apply the grid background to all pages
 export function AppWrapper({ children }: { children: React.ReactNode }) {
   return (
-    <div className="relative">
+    <div className="relative min-h-screen">
       <GridBackground />
-      {children}
+      <div className="relative z-10">
+        {children}
+      </div>
     </div>
   );
 }

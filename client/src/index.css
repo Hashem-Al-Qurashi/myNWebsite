@@ -113,6 +113,44 @@
     @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-cyan-400 to-primary/50;
   }
 
+/* Mobile menu animation */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+.mobile-menu-enter {
+  animation: slideDown 0.3s ease forwards;
+}
+
+.mobile-menu-exit {
+  animation: slideUp 0.3s ease forwards;
+}
+
+/* Fix nested anchors in mobile menu */
+nav a {
+  display: inline-block;
+  width: 100%;
+}
+
+
   /* 3D gradient background */
   .gradient-bg {
     background: 

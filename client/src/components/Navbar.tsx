@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Moon, Sun } from "lucide-react";
+import { Menu, X, Moon, Sun } from "lucide-react";
 
 export default function Navbar() {
   const [location] = useLocation();
@@ -18,6 +18,7 @@ export default function Navbar() {
     return false;
   });
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,11 +40,15 @@ export default function Navbar() {
       localStorage.setItem("theme", "light");
     }
   };
+  
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
 
   return (
     <motion.nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/80 backdrop-blur-lg border-b" : ""
+        isScrolled || isMobileMenuOpen ? "bg-background/95 backdrop-blur-lg border-b" : ""
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -55,7 +60,8 @@ export default function Navbar() {
             <a className="text-xl font-bold text-primary">EduPro</a>
           </Link>
 
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-4 md:gap-8">
+            {/* Desktop Navigation */}
             <nav className="hidden md:flex gap-6">
               {[
                 { name: "Courses", path: "/courses" },
@@ -81,7 +87,8 @@ export default function Navbar() {
               ))}
             </nav>
 
-            <div className="flex items-center gap-4">
+            {/* Dark mode toggle and sign in buttons */}
+            <div className="flex items-center gap-2 md:gap-4">
               <Button
                 variant="ghost"
                 size="icon"
@@ -94,15 +101,61 @@ export default function Navbar() {
                   <Moon className="h-5 w-5" />
                 )}
               </Button>
-              <Button className="rounded-full" size="sm" asChild>
+              <Button className="rounded-full hidden md:flex" size="sm" asChild>
                 <a href="/signin">Sign In</a>
               </Button>
-              <Button variant="ghost" size="sm" asChild>
+              <Button variant="ghost" size="sm" className="hidden md:flex" asChild>
                 <Link href="/assessment">حدد مستواك</Link>
+              </Button>
+              
+              {/* Mobile menu toggle button */}
+              <Button
+                variant="ghost"
+                size="icon"
+                className="md:hidden"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              >
+                {isMobileMenuOpen ? (
+                  <X className="h-5 w-5" />
+                ) : (
+                  <Menu className="h-5 w-5" />
+                )}
               </Button>
             </div>
           </div>
         </div>
+        
+        {/* Mobile Navigation Menu */}
+        {isMobileMenuOpen && (
+          <motion.div 
+            className="md:hidden py-4 border-t border-border"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            <div className="flex flex-col space-y-4">
+              {[
+                { name: "Courses", path: "/courses" },
+                { name: "About", path: "/about" },
+                { name: "Pricing", path: "/pricing" },
+                { name: "Sign In", path: "/signin" },
+                { name: "حدد مستواك", path: "/assessment" },
+              ].map((item) => (
+                <Link key={item.path} href={item.path}>
+                  <a 
+                    className={`block px-2 py-2 text-foreground/80 hover:text-foreground hover:bg-accent/50 rounded-md ${
+                      location === item.path ? "text-primary font-medium" : ""
+                    }`}
+                    onClick={closeMobileMenu}
+                  >
+                    {item.name}
+                  </a>
+                </Link>
+              ))}
+            </div>
+          </motion.div>
+        )}
       </div>
     </motion.nav>
   );

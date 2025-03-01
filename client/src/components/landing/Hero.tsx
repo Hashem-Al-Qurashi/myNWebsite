@@ -81,6 +81,7 @@ export default function Hero() {
               <Button 
                 size="lg" 
                 className="text-lg px-8 py-6 rounded-full bg-gradient-to-r from-primary via-cyan-500 to-primary hover:opacity-90 transition-all duration-300 hover:scale-105 shadow-lg shadow-primary/25"
+                onClick={() => window.location.href = '/courses'}
               >
                 حدد مستواك!
                 <ArrowRight className="mr-2 h-5 w-5" />

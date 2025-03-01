@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -9,6 +8,26 @@ import { Link } from "wouter";
 export default function Courses() {
   return (
     <div className="min-h-screen bg-background">
+      {/* Unique Bold Header */}
+      <div className="w-full py-6 bg-primary/5 backdrop-blur-sm border-b border-primary/10 sticky top-0 z-20 mb-8">
+        <div className="container mx-auto">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ 
+              duration: 0.8,
+              type: "spring",
+              bounce: 0.4
+            }}
+            className="flex justify-center items-center"
+          >
+            <span className="text-5xl font-black rtl bg-clip-text text-transparent bg-gradient-to-r from-primary via-cyan-400 to-primary px-3 py-1 rounded-lg border-2 border-primary/20 shadow-lg shadow-primary/10 transform hover:scale-105 transition-all duration-300">
+              خاصة ومباشرة
+            </span>
+          </motion.div>
+        </div>
+      </div>
+
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
         {/* Background gradient */}
@@ -74,7 +93,7 @@ export default function Courses() {
               إيش اللي يميز دورتي عن أي دورة ثانية؟
             </h2>
           </motion.div>
-          
+
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -93,7 +112,7 @@ export default function Courses() {
                 بكل بساطة، دورتي خاصة ومباشرة، مو دورة معلبة للجميع! لأنك مميز وتستاهل اهتمام كامل، أكون معاك بتركيزي الكامل.
               </p>
             </motion.div>
-            
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -111,7 +130,7 @@ export default function Courses() {
                 عندك التواصل المباشر معي على واتساب 24/7 لأي استفسار أو دعم تحتاجه، أسمعك، أصحح لك، وأوجهك خطوة بخطوة.
               </p>
             </motion.div>
-            
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -408,7 +427,7 @@ export default function Courses() {
                       <p className="text-sm text-muted-foreground">داخل الدورة</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center gap-4">
                     <div className="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center">
                       <span className="font-bold text-primary">250+</span>
@@ -418,7 +437,7 @@ export default function Courses() {
                       <p className="text-sm text-muted-foreground">تحفظها بطريقة ممتعة</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center gap-4">
                     <div className="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center">
                       <span className="font-bold text-primary">50+</span>
@@ -428,7 +447,7 @@ export default function Courses() {
                       <p className="text-sm text-muted-foreground">تتعلمها بأسلوب تطبيقي</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center gap-4">
                     <div className="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center">
                       <span className="font-bold text-primary">16</span>
@@ -441,7 +460,7 @@ export default function Courses() {
                 </div>
               </div>
             </motion.div>
-            
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -456,14 +475,14 @@ export default function Courses() {
               <p className="text-lg text-muted-foreground mb-8">
                 لكن إذا تبغاني أكون معاك خطوة بخطوة، أعطيك كل التكنيكات اللي تحتاجها، وأضمن لك توصل بأسرع وقت – فالدورة هذي هي اللي تدور عليها!
               </p>
-              
+
               <div className="bg-primary/10 p-6 rounded-xl border border-primary/20 mb-8">
                 <h3 className="text-xl font-bold mb-2">وعدي لك</h3>
                 <p className="text-lg">
                   إذا ما لاحظت تحسن واضح خلال ٣٠ يوم، أرجع لك فلوسك بالكامل!
                 </p>
               </div>
-              
+
               <Button className="w-full py-6 text-lg rounded-xl" size="lg">
                 ابدأ الآن
               </Button>

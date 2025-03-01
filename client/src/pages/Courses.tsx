@@ -9,56 +9,6 @@ export default function Courses() {
   return (
     <div className="min-h-screen bg-background">
 
-      {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-background to-background">
-          <motion.div
-            className="absolute inset-0"
-            style={{
-              background: "radial-gradient(circle at 50% 50%, var(--primary) 0%, transparent 50%)",
-              filter: "blur(120px)",
-            }}
-            animate={{
-              opacity: [0.1, 0.3, 0.1],
-              scale: [0.8, 1, 0.8],
-            }}
-            transition={{
-              duration: 8,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
-        </div>
-
-        <div className="container mx-auto px-4 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16 max-w-3xl mx-auto"
-          >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70 rtl text-center">
-              دورات آيلتس متخصصة
-            </h1>
-            <p className="text-lg text-muted-foreground mb-8 rtl">
-              نهج شامل وفعال لتطوير مهاراتك في اختبار الآيلتس واجتيازه بثقة ونجاح
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Button className="rounded-full px-8" size="lg">
-                ابدأ الآن
-              </Button>
-              <Link href="/quiz">
-                <Button variant="outline" className="rounded-full px-8" size="lg">
-                  حدد مستواك
-                </Button>
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Main Three-Step Approach */}
       {/* What makes our courses special */}
       <section className="py-32 bg-gradient-to-b from-background via-primary/5 to-muted/30 relative">
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
@@ -70,7 +20,7 @@ export default function Courses() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-6xl font-bold mb-8 rtl gradient-text leading-tight text-center">
+            <h2 className="text-6xl font-bold mb-8 rtl gradient-text leading-tight text-center mx-auto">
               إيش اللي يميز دورتي عن أي دورة ثانية؟
             </h2>
           </motion.div>
@@ -89,7 +39,7 @@ export default function Courses() {
               transition={{ delay: 0.3, duration: 0.5 }}
               className="text-center"
             >
-              <h2 className="text-8xl font-extrabold mb-6 rtl tracking-tight gradient-text text-center">
+              <h2 className="text-8xl font-extrabold mb-6 rtl tracking-tight gradient-text text-center mx-auto">
                 خاصة ومباشرة
               </h2>
               <p className="text-2xl text-foreground/90 rtl max-w-4xl mx-auto leading-relaxed">
@@ -164,7 +114,7 @@ export default function Courses() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl font-bold mb-4 rtl text-center">نهجنا المتكامل للنجاح في الآيلتس</h2>
+            <h2 className="text-3xl font-bold mb-4 rtl text-center mx-auto">نهجنا المتكامل للنجاح في الآيلتس</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto rtl">
               منهجية مدروسة من ثلاث خطوات أساسية لضمان وصولك إلى الدرجة المستهدفة
             </p>
@@ -329,7 +279,7 @@ export default function Courses() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl font-bold mb-4 rtl text-center">ليش دورتي مختلفة؟</h2>
+            <h2 className="text-3xl font-bold mb-4 rtl text-center mx-auto">ليش دورتي مختلفة؟</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto rtl">
               عشان أضمن لك أنك بتوصل للنتيجة اللي تبغاها، عندي ٤ معايير أساسية في الدورة
             </p>
@@ -470,7 +420,7 @@ export default function Courses() {
               viewport={{ once: true }}
               className="order-1 md:order-2 rtl"
             >
-              <h2 className="text-3xl font-bold mb-6 text-center">هل الدورة لك؟</h2>
+              <h2 className="text-3xl font-bold mb-6 text-center mx-auto">هل الدورة لك؟</h2>
               <p className="text-lg text-muted-foreground mb-8">
                 إذا كنت فاهم أساسيات الإنجليزي، وماشي في تطوير نفسك، فممكن ما تحتاج تسجل معي. استمر، وإن شاء الله توصل!
               </p>
@@ -502,7 +452,7 @@ export default function Courses() {
           viewport={{ once: true }}
           className="max-w-3xl mx-auto text-center rtl"
         >
-          <h2 className="text-3xl font-bold mb-6 text-center">لا تخلي اختبار بسيط يكون العائق بينك وبين مستقبلك!</h2>
+          <h2 className="text-3xl font-bold mb-6 text-center mx-auto">لا تخلي اختبار بسيط يكون العائق بينك وبين مستقبلك!</h2>
           <p className="text-lg text-muted-foreground mb-8">
             انضم لآلاف الطلاب اللي حققوا درجاتهم المستهدفة معنا وابدأ رحلتك نحو النجاح اليوم.
           </p>

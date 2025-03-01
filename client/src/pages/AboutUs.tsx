@@ -49,7 +49,6 @@ export default function AboutUs() {
 
   return (
     <div className="min-h-[calc(100vh-5rem)] bg-background relative overflow-hidden rtl">
-      <GridBackground />
       {/* 3D Animated background */}
       <div className="absolute inset-0 z-0">
         <motion.div

@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 // This is a wrapper component for all pages

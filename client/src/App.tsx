@@ -8,6 +8,7 @@ import Home from "@/pages/Home";
 import Course from "@/pages/Course";
 import SignIn from "@/pages/SignIn";
 import SignUp from "@/pages/SignUp";
+import AssessmentQuiz from "@/pages/AssessmentQuiz";
 
 function Router() {
   return (
@@ -16,6 +17,7 @@ function Router() {
       <Route path="/course/:id" component={Course} />
       <Route path="/signin" component={SignIn} />
       <Route path="/signup" component={SignUp} />
+      <Route path="/assessment" component={AssessmentQuiz} />
       <Route component={NotFound} />
     </Switch>
   );

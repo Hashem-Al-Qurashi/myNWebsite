@@ -79,6 +79,9 @@ export default function Navbar() {
               <Button className="rounded-full" size="sm" asChild>
                 <a href="/signin">Sign In</a>
               </Button>
+              <Button variant="ghost" size="sm" asChild>
+                <Link href="/assessment">حدد مستواك</Link>
+              </Button>
             </div>
           </div>
         </div>

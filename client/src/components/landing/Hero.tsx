@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import AssessmentQuiz from "@/pages/AssessmentQuiz";
 import { ArrowRight, Download, MessageCircle } from "lucide-react";
 import { Link } from "wouter";
 
@@ -10,7 +11,8 @@ export default function Hero() {
       <motion.div
         className="absolute inset-0 opacity-30"
         style={{
-          background: "radial-gradient(circle at 50% 50%, var(--primary) 0%, transparent 50%)",
+          background:
+            "radial-gradient(circle at 50% 50%, var(--primary) 0%, transparent 50%)",
           filter: "blur(120px)",
         }}
         animate={{
@@ -64,7 +66,9 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <h1 className="text-6xl font-bold mb-6 tracking-tight leading-tight">
-              <span className="gradient-text">احصل على درجتك المطلوبة في الآيلتس</span>
+              <span className="gradient-text">
+                احصل على درجتك المطلوبة في الآيلتس
+              </span>
               <br />
               <span className="text-foreground/90">بأسهل وأسرع طريقة!</span>
             </h1>
@@ -79,17 +83,17 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="flex gap-6 items-center justify-center flex-wrap"
             >
-              <Link href="/assessmentquiz">
-                <Button 
-                  size="lg" 
+              <Link href="/AssessmentQuiz">
+                <Button
+                  size="lg"
                   className="text-lg px-8 py-6 rounded-full bg-gradient-to-r from-primary via-cyan-500 to-primary hover:opacity-90 transition-all duration-300 hover:scale-105 shadow-lg shadow-primary/25"
                 >
                   حدد مستواك!
                   <ArrowRight className="mr-2 h-5 w-5" />
                 </Button>
-              </Link>
-              <Button 
-                size="lg" 
+              </Link >
+              <Button
+                size="lg"
                 variant="outline"
                 className="text-lg px-8 py-6 rounded-full border-primary/20 hover:bg-primary/10 transition-all duration-300"
               >
@@ -110,8 +114,13 @@ export default function Hero() {
                 { number: "+١٫٥", label: "معدل تحسن الدرجة" },
                 { number: "+١٠٠٠", label: "طالب ناجح" },
               ].map((stat, i) => (
-                <div key={i} className="text-center bg-card/30 backdrop-blur-sm rounded-2xl p-6 border border-primary/10">
-                  <h3 className="text-3xl font-bold gradient-text mb-2">{stat.number}</h3>
+                <div
+                  key={i}
+                  className="text-center bg-card/30 backdrop-blur-sm rounded-2xl p-6 border border-primary/10"
+                >
+                  <h3 className="text-3xl font-bold gradient-text mb-2">
+                    {stat.number}
+                  </h3>
                   <p className="text-sm text-muted-foreground">{stat.label}</p>
                 </div>
               ))}
@@ -127,7 +136,9 @@ export default function Hero() {
               <Button
                 size="lg"
                 className="rounded-full bg-green-500 hover:bg-green-600 transition-all duration-300 shadow-lg"
-                onClick={() => window.open('https://wa.me/your-number', '_blank')}
+                onClick={() =>
+                  window.open("https://wa.me/your-number", "_blank")
+                }
               >
                 <MessageCircle className="h-6 w-6 mr-2" />
                 تواصل معنا عبر واتساب

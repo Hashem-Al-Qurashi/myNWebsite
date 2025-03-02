@@ -40,7 +40,7 @@ export default function Testimonials() {
                 <motion.img
                   src={image}
                   alt={`Testimonial ${index + 1}`}
-                  className="w-full h-auto object-contain"
+                  className="max-w-full max-h-full w-auto h-auto"
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.3 }}
                   onError={(e) => {

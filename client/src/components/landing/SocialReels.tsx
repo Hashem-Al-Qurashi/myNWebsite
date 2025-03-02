@@ -38,21 +38,21 @@ const demoReels: SocialReel[] = [
   {
     id: "1",
     platform: "instagram",
-    embedUrl: "https://www.instagram.com/p/placeholder1/embed",
+    embedUrl: "https://www.instagram.com/reel/DAV9stIvBZB/?utm_source=ig_embed&amp;utm_campaign=loading" ,
     thumbnail: "/attached_assets/testomny 1.jpeg", // Using testimonial images as placeholders
     title: "IELTS Speaking Tips"
   },
   {
     id: "2",
     platform: "tiktok",
-    embedUrl: "https://www.tiktok.com/embed/placeholder2",
+    embedUrl: "https://www.instagram.com/reel/DAV9stIvBZB/?utm_source=ig_embed&amp;utm_campaign=loading",
     thumbnail: "/attached_assets/testomny 2.jpeg",
     title: "Writing Section Strategy"
   },
   {
     id: "3",
     platform: "instagram",
-    embedUrl: "https://www.instagram.com/p/placeholder3/embed",
+    embedUrl: "https://www.instagram.com/reel/DAV9stIvBZB/?utm_source=ig_embed&amp;utm_campaign=loading",
     thumbnail: "/attached_assets/testomny 3.jpeg",
     title: "Vocabulary Building"
   },

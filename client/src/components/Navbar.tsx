@@ -138,9 +138,9 @@ export default function Navbar() {
               {[
                 { name: "Courses", path: "/courses" },
                 { name: "About", path: "/about" },
-                { name: "Pricing", path: "/pricing" },
+                
                 { name: "Sign In", path: "/signin" },
-                { name: "حدد مستواك", path: "/assessment" },
+                
               ].map((item) => (
                 <Link key={item.path} href={item.path}>
                   <a 

@@ -39,35 +39,35 @@ const demoReels: SocialReel[] = [
     id: "1",
     platform: "instagram",
     embedUrl: "https://www.instagram.com/reel/DAV9stIvBZB/?utm_source=ig_embed&amp;utm_campaign=loading" ,
-    thumbnail: "/attached_assets/testomny 1.jpeg", // Using testimonial images as placeholders
+    thumbnail: "/placeholder.jpg", // Using placeholder image
     title: "IELTS Speaking Tips"
   },
   {
     id: "2",
     platform: "tiktok",
     embedUrl: "https://www.instagram.com/reel/DAV9stIvBZB/?utm_source=ig_embed&amp;utm_campaign=loading",
-    thumbnail: "/attached_assets/testomny 2.jpeg",
+    thumbnail: "/placeholder.jpg",
     title: "Writing Section Strategy"
   },
   {
     id: "3",
     platform: "instagram",
     embedUrl: "https://www.instagram.com/reel/DAV9stIvBZB/?utm_source=ig_embed&amp;utm_campaign=loading",
-    thumbnail: "/attached_assets/testomny 3.jpeg",
+    thumbnail: "/placeholder.jpg",
     title: "Vocabulary Building"
   },
   {
     id: "4",
     platform: "tiktok",
     embedUrl: "https://www.tiktok.com/embed/placeholder4",
-    thumbnail: "/attached_assets/testomny 4.jpeg",
+    thumbnail: "/placeholder.jpg",
     title: "Listening Test Secrets"
   },
   {
     id: "5",
     platform: "instagram",
     embedUrl: "https://www.instagram.com/p/placeholder5/embed",
-    thumbnail: "/attached_assets/testomny 1.jpeg",
+    thumbnail: "/placeholder.jpg",
     title: "Reading Comprehension"
   }
 ];

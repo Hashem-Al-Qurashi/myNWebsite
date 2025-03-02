@@ -6,14 +6,11 @@ import { motion } from "framer-motion";
 import SocialReels from "@/components/landing/SocialReels"; // Added import
 
 
-import SimpleTestimonials from "@/components/landing/SimpleTestimonials";
-
 function Home() {
   return (
     <div className="min-h-screen">
       <Hero />
       <Features />
-      <SimpleTestimonials />
       <SocialReels /> {/* Added SocialReels component */}
 
       <section className="py-20 bg-gradient-to-b from-background to-primary/5">

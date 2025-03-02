@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 export default function Testimonials() {
   // Using properly formatted paths to the testimonial images
   const testimonialImages = [
-    "/attached_assets/testomny-1.jpeg",
-    "/attached_assets/testomny-2.jpeg",
-    "/attached_assets/testomny-3.jpeg",
-    "/attached_assets/testomny-4.jpeg",
+    "./public/testomny-1.jpeg",
+    "./public/testomny-2.jpeg",
+    "./public/testomny-3.jpeg",
+    "./public/testomny-4.jpeg",
   ]
 
   return (

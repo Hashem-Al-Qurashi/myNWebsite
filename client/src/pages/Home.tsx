@@ -7,10 +7,10 @@ import SocialReels from "@/components/landing/SocialReels"; // Added import
 
 
 const testimonials = [
-  { image: "./attached_assets/testomny 1.jpeg", quote: "Testimonial 1" },
-  { image: "./attached_assets/testomny 2.jpeg", quote: "Testimonial 2" },
-  { image: "./attached_assets/testomny 3.jpeg", quote: "Testimonial 3" },
-  { image: "./attached_assets/testomny 4.jpeg", quote: "Testimonial 4" },
+  { image: "/attached_assets/testomny 1.jpeg", quote: "Testimonial 1" },
+  { image: "/attached_assets/testomny 2.jpeg", quote: "Testimonial 2" },
+  { image: "/attached_assets/testomny 3.jpeg", quote: "Testimonial 3" },
+  { image: "/attached_assets/testomny 4.jpeg", quote: "Testimonial 4" },
 ];
 
 function NewTestimonials() {
@@ -29,6 +29,9 @@ function NewTestimonials() {
                 src={testimonial.image}
                 alt={`Testimonial ${index + 1}`}
                 className="w-full mb-4 rounded-lg"
+                onError={(e) => {
+                  e.target.src = "/fallback.jpg"; // Replace with your fallback image path
+                }}
               />
               <p className="text-lg">{testimonial.quote}</p>
             </motion.div>

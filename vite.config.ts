@@ -33,5 +33,13 @@ export default defineConfig({
   build: {
     outDir: path.resolve(__dirname, "dist/public"),
     emptyOutDir: true,
+    assetsInclude: ['**/*.md', '**/*.jpeg', '**/*.jpg', '**/*.png', '**/*.svg', '**/*.gif'],
+  },
+  server: {
+    fs: {
+      strict: false,
+      allow: ['..'],
+    },
+    cors: true,
   },
 });

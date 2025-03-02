@@ -1,6 +1,6 @@
 
-import { useState } from 'react';
-import { api } from '../api/auth';
+import React, { useState } from 'react';
+import { login } from '../api/auth';
 
 function SignIn({ onLogin }) {
   const [email, setEmail] = useState('');
@@ -14,20 +14,19 @@ function SignIn({ onLogin }) {
     setError('');
 
     try {
-      const response = await api.post('/api/auth/login', { email, password });
-      if (response.data && response.data.token) {
-        onLogin(response.data.token);
-      }
+      const response = await login(email, password);
+      onLogin(response.data.token);
     } catch (err) {
-      setError(err.response?.data?.message || 'Failed to login');
+      setError(err.response?.data?.message || 'Login failed');
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="form-container">
-      <h2>Sign In</h2>
+    <div className="auth-form">
+      <h1>Sign In</h1>
+      {error && <div className="error">{error}</div>}
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="email">Email</label>
@@ -52,7 +51,6 @@ function SignIn({ onLogin }) {
         <button type="submit" disabled={loading}>
           {loading ? 'Signing in...' : 'Sign In'}
         </button>
-        {error && <div className="error">{error}</div>}
       </form>
     </div>
   );

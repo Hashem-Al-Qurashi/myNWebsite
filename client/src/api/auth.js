@@ -1,39 +1,39 @@
 
-import axios from "axios";
+import axios from 'axios';
 
-// API base URL - use the server's actual address with port 5000
-const API_BASE_URL = "http://0.0.0.0:5000";
-
-// Create axios instance
-export const api = axios.create({ 
-  baseURL: API_BASE_URL,
-  withCredentials: true
+// Create an axios instance with the base URL
+export const api = axios.create({
+  baseURL: 'http://localhost:5000',
+  withCredentials: true,
 });
 
-// Add authorization header interceptor
-api.interceptors.request.use(config => {
-  const token = localStorage.getItem('token');
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
-  }
-  return config;
-});
+// Add token to the headers if it exists
+api.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
 
-// Auth API methods
-export const login = async (credentials) => {
-  try {
-    const response = await api.post('/api/auth/login', credentials);
-    return response.data;
-  } catch (error) {
-    throw error.response?.data || { message: 'Network error' };
-  }
+// Login function
+export const login = async (email, password) => {
+  return await api.post('/api/auth/login', { email, password });
 };
 
-export const fetchProtectedContent = async () => {
-  try {
-    const response = await api.get('/api/protected-content');
-    return response.data;
-  } catch (error) {
-    throw error.response?.data || { message: 'Network error' };
-  }
+// Register function (admin only)
+export const register = async (email, password, adminKey) => {
+  return await api.post(
+    '/api/auth/register', 
+    { email, password },
+    { headers: { 'x-admin-key': adminKey } }
+  );
+};
+
+// Get protected content
+export const getProtectedContent = async () => {
+  return await api.get('/api/protected-content');
 };

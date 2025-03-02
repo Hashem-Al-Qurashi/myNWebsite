@@ -29,10 +29,7 @@ app.get('/api', (req, res) => {
 
 // Protected route example
 app.get('/api/protected-content', authMiddleware, (req, res) => {
-  res.json({ 
-    message: 'You have access to protected content',
-    user: req.user
-  });
+  res.json({ message: 'Welcome to protected content!' });
 });
 
 // Start server

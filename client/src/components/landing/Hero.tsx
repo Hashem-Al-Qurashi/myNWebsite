@@ -92,14 +92,21 @@ export default function Hero() {
                   <ArrowRight className="mr-2 h-5 w-5" />
                 </Button>
               </Link>
-              <Button
-                size="lg"
-                variant="outline"
-                className="text-lg px-8 py-6 rounded-full border-primary/20 hover:bg-primary/10 transition-all duration-300"
+              <a
+                href="https://drive.google.com/drive/u/0/folders/1Ot95zTg6wV9mAI25B9_v7wtd0_hrVzld"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                خطة مذاكرة ترفعك درجة كاملة مجاناً
-                <Download className="mr-2 h-5 w-5" />
-              </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="text-lg px-8 py-6 rounded-full border-primary/20 hover:bg-primary/10 transition-all duration-300"
+                >
+                  خطة مذاكرة ترفعك درجة كاملة مجاناً
+                  <Download className="mr-2 h-5 w-5" />
+                </Button>
+              </a>
+
             </motion.div>
 
             {/* Stats */}

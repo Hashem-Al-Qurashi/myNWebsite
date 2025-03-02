@@ -8,7 +8,7 @@ export default function AboutUs() {
   const statItems = [
     { value: "90%", text: "من طلابنا رفعوا درجتهم خلال 6 أسابيع" },
     { value: "85%", text: "تكلموا بثقة بعد أقل من شهرين" },
-    { value: "72%", text: "من مشتركينا تجاوزوا درجة 7.0 في الآيلتس" },
+    { value: "72%", text: "من مشتركينا تجاوزوا درجة 7.0 في الايلتس" },
     { value: "100%", text: "تدريب عملي بدون حشو أو نظريات مملة" },
   ];
   
@@ -29,7 +29,7 @@ export default function AboutUs() {
       delay: 0.3,
     },
     {
-      title: "محاكاة حقيقية لاختبار الآيلتس",
+      title: "محاكاة حقيقية لاختبار الايلتس",
       description: "ما تحتاج تفاجأ يوم الاختبار! عندنا نماذج محاكية 100% مع تصحيح دقيق يعطيك نقاط القوة والضعف قبل الاختبار الرسمي.",
       delay: 0.4,
     },
@@ -140,7 +140,7 @@ export default function AboutUs() {
               transition={{ delay: 0.5, duration: 0.8 }}
               className="text-lg mb-10"
             >
-              احنا متخصصين في دورات IELTS والتحدث بطلاقة، وعندنا منهجية مختلفة تمامًا عن الدورات التقليدية. بالأرقام؟ 90% من طلابنا رفعوا درجتهم في الآيلتس خلال 6 أسابيع فقط، و85% قدروا يتكلمون بثقة في مقابلات العمل بعد أقل من شهرين من التدريب معنا!
+              احنا متخصصين في دورات IELTS والتحدث بطلاقة، وعندنا منهجية مختلفة تمامًا عن الدورات التقليدية. بالأرقام؟ 90% من طلابنا رفعوا درجتهم في الايلتس خلال 6 أسابيع فقط، و85% قدروا يتكلمون بثقة في مقابلات العمل بعد أقل من شهرين من التدريب معنا!
             </motion.p>
           </motion.div>
         </div>
@@ -318,10 +318,12 @@ export default function AboutUs() {
               className="group text-lg px-8 py-6 rounded-xl shadow-lg shadow-primary/10"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
+              onClick={() => window.location.href = "https://wa.me/966571625157"}
             >
-              ابدأ الآن
+              ابدأ رحلتك للنجاح اليوم!
               <ArrowRight className="mr-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
+
           </motion.div>
         </div>
       </section>
@@ -337,11 +339,11 @@ export default function AboutUs() {
             className="max-w-4xl mx-auto text-center"
           >
             <h2 className="text-4xl font-bold mb-8 tracking-tight">
-              جاهز تبدأ؟ خلي حلمك في الآيلتس يتحقق معنا بأسرع وقت وأفضل طريقة!
+              جاهز تبدأ؟ خلي حلمك في الايلتس يتحقق معنا بأسرع وقت وأفضل طريقة!
             </h2>
-            <Button size="lg" className="group text-lg px-8 py-6 rounded-xl">
-              حدد مستواك الآن
-              <ArrowRight className="mr-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            <Button size="lg" className="group text-lg px-8 py-6 rounded-xl"
+              onClick={() => window.location.href = "https://wa.me/966571625157"}>
+احجز جلسة استشارية              <ArrowRight className="mr-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
           </motion.div>
         </div>

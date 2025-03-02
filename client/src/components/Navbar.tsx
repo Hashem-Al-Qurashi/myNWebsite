@@ -66,7 +66,6 @@ export default function Navbar() {
               {[
                 { name: "Courses", path: "/courses" },
                 { name: "About", path: "/about" },
-                { name: "Pricing", path: "/pricing" },
               ].map((item) => (
                 <Link key={item.path} href={item.path}>
                   <div className="relative group py-2 cursor-pointer">

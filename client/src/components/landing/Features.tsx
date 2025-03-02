@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { Brain, Target, BookOpen, Bot } from "lucide-react";
+import { Brain, Target, BookOpen, Bot, ArrowRight } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { useLocation } from "wouter";
 
 const features = [
   {
@@ -30,6 +31,8 @@ const features = [
 ];
 
 export default function Features() {
+  const [, setLocation] = useLocation(); // Get function to change route
+
   return (
     <section className="py-24 relative overflow-hidden">
       {/* Glassmorphism background effect */}
@@ -44,10 +47,10 @@ export default function Features() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold mb-4">
-           وش اللي يميز دورتنا؟          </h2>
+          <h2 className="text-4xl font-bold mb-4">وش اللي يميز دورتنا؟</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-          دورة الآيلتس الأقوى – 93% من طلابنا رفعوا درجتهم بمعدل  +1.5 درجة خلال 8 أسابيع فقط          </p>
+            دورة الايلتس الأقوى – 93% من طلابنا رفعوا درجتهم بمعدل +1.5 درجة خلال 8 أسابيع فقط
+          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -68,15 +71,24 @@ export default function Features() {
                   <CardTitle className="text-xl">{feature.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">
-                    {feature.description}
-                  </p>
+                  <p className="text-muted-foreground">{feature.description}</p>
                 </CardContent>
-                {/* Hover effect overlay */}
-                <div className="absolute inset-0 bg-primary/5 opacity-0 hover:opacity-100 transition-opacity duration-300" />
               </Card>
             </motion.div>
           ))}
+        </div>
+
+        {/* Redirect Button */}
+        <div className="flex justify-center mt-12">
+          <button
+            onClick={() => setLocation("/courses")}
+            className="text-lg px-8 py-6 rounded-full bg-gradient-to-r from-primary via-cyan-500 to-primary 
+            hover:opacity-90 transition-all duration-300 hover:scale-105 shadow-lg shadow-primary/25 
+            light:hero-button-primary flex items-center"
+          >
+          اعرف اكثر عن الدورة
+            <ArrowRight className="mr-2 h-5 w-5" />
+          </button>
         </div>
       </div>
     </section>

@@ -119,7 +119,7 @@ export default function SocialReels() {
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">تابعني على وسائل التواصل الاجتماعي</h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto rtl">
-            شاهد أحدث الفيديوهات التعليمية والنصائح السريعة لاجتياز اختبار الآيلتس
+            شاهد أحدث الفيديوهات التعليمية والنصائح السريعة لاجتياز اختبار الايلتس
           </p>
         </motion.div>
 

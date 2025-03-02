@@ -99,7 +99,7 @@ export default function Courses() {
               </div>
               <h3 className="text-xl md:text-2xl font-semibold mb-3 md:mb-4 rtl text-center">فعالية مضمونة</h3>
               <p className="text-sm md:text-lg text-muted-foreground rtl text-center">
-                كل دقيقة في المحاضرة محسوبة لصالحك، لأنك جالس مع خبير في الآيلتس. مصممة لك، عشان تضمن أعلى درجة بأقل وقت وأفضل طريقة!
+                كل دقيقة في المحاضرة محسوبة لصالحك، لأنك جالس مع خبير في الايلتس. مصممة لك، عشان تضمن أعلى درجة بأقل وقت وأفضل طريقة!
               </p>
             </motion.div>
           </div>
@@ -117,7 +117,7 @@ export default function Courses() {
             viewport={{ once: true }}
             className="text-center mb-10 md:mb-16"
           >
-            <h2 className="text-2xl md:text-3xl font-bold mb-4 rtl text-center mx-auto">نهجنا المتكامل للنجاح في الآيلتس</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4 rtl text-center mx-auto">نهجنا المتكامل للنجاح في الايلتس</h2>
             <p className="text-sm md:text-lg text-muted-foreground max-w-2xl mx-auto rtl">
               منهجية مدروسة من ثلاث خطوات أساسية لضمان وصولك إلى الدرجة المستهدفة
             </p>
@@ -298,10 +298,10 @@ export default function Courses() {
             >
               <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
                 <CheckCircle2 className="h-5 w-5 text-primary" />
-                <span>تخلص من عقدة الآيلتس</span>
+                <span>تخلص من عقدة الايلتس</span>
               </h3>
               <p className="text-sm md:text-base text-muted-foreground">
-                حاب تفتك من عقدة الآيلتس وتجيب الدرجة اللي تحتاجها؟ الدورة مصممة عشان تحول قلقك لثقة ونتيجة مضمونة.
+                حاب تفتك من عقدة الايلتس وتجيب الدرجة اللي تحتاجها؟ الدورة مصممة عشان تحول قلقك لثقة ونتيجة مضمونة.
               </p>
             </motion.div>
 
@@ -438,8 +438,9 @@ export default function Courses() {
                 </p>
               </div>
 
-              <Button className="w-full py-6 text-lg rounded-xl" size="lg">
-                ابدأ الآن
+              <Button className="w-full py-6 text-lg rounded-xl" size="lg"
+                onClick={() => window.location.href = "https://wa.me/966571625157"}>
+                ابدأ رحلتك للنجاح اليوم!
               </Button>
             </motion.div>
           </div>
@@ -459,9 +460,9 @@ export default function Courses() {
           <p className="text-sm md:text-lg text-muted-foreground mb-8">
             انضم لآلاف الطلاب اللي حققوا درجاتهم المستهدفة معنا وابدأ رحلتك نحو النجاح اليوم.
           </p>
-          <Button className="rounded-full px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 text-base sm:text-lg w-full sm:w-auto" size="lg">
-            ابدأ رحلتك اليوم
-          </Button>
+          <Button className="rounded-full px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 text-base sm:text-lg w-full sm:w-auto" size="lg"
+            onClick={() => window.location.href = "https://wa.me/966571625157"}>
+احجز جلسة استشارية!          </Button>
         </motion.div>
       </section>
     </div>

@@ -36,13 +36,12 @@ export default function Testimonials() {
     "./public/testomny-2.jpeg",
     "./public/testomny-3.jpeg",
     "./public/testomny-4.jpeg",
+    "./public/testomny-5.jpeg",
+    "./public/testomny-6.jpeg",
   ];
 
   const testimonialTexts = [
-    "استفدت كثيراً من دوراتهم في تحسين مستواي",
-    "ساعدوني في الحصول على درجة 7.5 من المحاولة الأولى",
-    "أسلوب شرح ممتاز ونصائح قيمة طوال الدورة",
-    "أفضل منصة لتحضير اختبار الآيلتس بدون منازع"
+   
   ];
 
   return (
@@ -54,7 +53,7 @@ export default function Testimonials() {
           transition={{ duration: 0.5 }}
           className="text-3xl font-bold text-center mb-10"
         >
-          شهادات العملاء
+          شهادات طلابنا الكرام
         </motion.h2>
 
         <Carousel
@@ -112,7 +111,7 @@ export default function Testimonials() {
                     whileHover={{ backgroundColor: "rgba(var(--primary-rgb), 0.05)" }}
                     transition={{ duration: 0.3 }}
                   >
-                    <h3 className="font-bold mb-1">عميل {index + 1}</h3>
+                    <h3 className="font-bold mb-1"></h3>
                     <p className="text-sm text-muted-foreground">
                       {testimonialTexts[index]}
                     </p>

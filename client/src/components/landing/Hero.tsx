@@ -68,7 +68,7 @@ export default function Hero() {
           >
             <h1 className="text-6xl font-bold mb-6 tracking-tight leading-tight">
               <span className="gradient-text">
-                احصل على درجتك المطلوبة في الآيلتس
+                احصل على درجتك المطلوبة في الايلتس
               </span>
               <br />
               <span className="text-foreground/90">بأسهل وأسرع طريقة!</span>
@@ -107,8 +107,9 @@ export default function Hero() {
                   <Download className="mr-2 h-5 w-5" />
                 </Button>
               </a>
-
             </motion.div>
+
+            
 
             {/* Stats */}
             <motion.div
@@ -145,7 +146,7 @@ export default function Hero() {
                 size="lg"
                 className="rounded-full bg-green-500 hover:bg-green-600 transition-all duration-300 shadow-lg"
                 onClick={() =>
-                  window.open("https://wa.me/your-number", "_blank")
+                  window.open("https://wa.me/966571625157", "_blank")
                 }
               >
                 <MessageCircle className="h-6 w-6 mr-2" />

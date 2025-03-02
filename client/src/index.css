@@ -196,6 +196,40 @@ nav a {
     hsl(210, 20%, 85%);
 }
 
+/* Light mode specific styling for hero section */
+.light .hero-button-primary {
+  background-color: hsl(210, 100%, 45%);
+  color: white;
+  box-shadow: 0 10px 25px -5px rgba(0, 120, 255, 0.25);
+  transition: all 0.3s ease;
+}
+
+.light .hero-button-primary:hover {
+  background-color: hsl(210, 100%, 40%);
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px -5px rgba(0, 120, 255, 0.35);
+}
+
+.light .hero-button-secondary {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: hsl(210, 100%, 45%);
+  border: 1px solid hsl(210, 100%, 80%);
+  box-shadow: 0 5px 15px -5px rgba(0, 120, 255, 0.15);
+}
+
+.light .hero-button-secondary:hover {
+  background-color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -5px rgba(0, 120, 255, 0.25);
+}
+
+/* 3D depth effect for light mode */
+.light .depth-effect {
+  box-shadow: 
+    0 10px 30px -5px rgba(0, 0, 0, 0.1),
+    0 20px 60px -10px rgba(120, 160, 255, 0.2);
+}
+
 /* Ensure gradient background applies to light mode as well */
 .light .gradient-bg {
   background: 

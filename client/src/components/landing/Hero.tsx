@@ -58,7 +58,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto text-center rtl"
+          className="max-w-4xl mx-auto text-center rtl p-8 rounded-3xl light:bg-white/60 light:backdrop-blur-md light:depth-effect" // Added light mode styling
         >
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -86,7 +86,7 @@ export default function Hero() {
               <Link href="/assessment">
                 <Button
                   size="lg"
-                  className="text-lg px-8 py-6 rounded-full bg-gradient-to-r from-primary via-cyan-500 to-primary hover:opacity-90 transition-all duration-300 hover:scale-105 shadow-lg shadow-primary/25"
+                  className="text-lg px-8 py-6 rounded-full bg-gradient-to-r from-primary via-cyan-500 to-primary hover:opacity-90 transition-all duration-300 hover:scale-105 shadow-lg shadow-primary/25 light:hero-button-primary"
                 >
                   حدد مستواك!
                   <ArrowRight className="mr-2 h-5 w-5" />
@@ -100,7 +100,7 @@ export default function Hero() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="text-lg px-8 py-6 rounded-full border-primary/20 hover:bg-primary/10 transition-all duration-300"
+                  className="text-lg px-8 py-6 rounded-full border-primary/20 hover:bg-primary/10 transition-all duration-300 light:hero-button-secondary"
                 >
                   خطة مذاكرة ترفعك درجة كاملة مجاناً
                   <Download className="mr-2 h-5 w-5" />

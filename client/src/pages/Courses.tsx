@@ -459,7 +459,7 @@ export default function Courses() {
           <p className="text-sm md:text-lg text-muted-foreground mb-8">
             انضم لآلاف الطلاب اللي حققوا درجاتهم المستهدفة معنا وابدأ رحلتك نحو النجاح اليوم.
           </p>
-          <Button className="rounded-full px-8 py-6 text-lg" size="lg">
+          <Button className="rounded-full px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 text-base sm:text-lg w-full sm:w-auto" size="lg">
             ابدأ رحلتك اليوم
           </Button>
         </motion.div>

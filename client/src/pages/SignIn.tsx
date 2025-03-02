@@ -7,7 +7,8 @@ import { Label } from "@/components/ui/label";
 import { motion } from "framer-motion";
 
 export default function SignIn() {
-
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -44,15 +45,6 @@ export default function SignIn() {
     }
   };
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Authentication logic would go here
-    console.log("Sign in attempt with:", { email, password });
-  };
-
   return (
     <div className="min-h-[calc(100vh-5rem)] flex items-center justify-center bg-background">
       <motion.div
@@ -71,6 +63,11 @@ export default function SignIn() {
           <CardContent>
             <form onSubmit={handleSubmit}>
               <div className="space-y-4">
+                {error && (
+                  <div className="p-3 bg-red-500/10 border border-red-500/50 rounded text-red-600 text-sm">
+                    {error}
+                  </div>
+                )}
                 <div className="space-y-2">
                   <Label htmlFor="email">Email</Label>
                   <Input
@@ -93,7 +90,9 @@ export default function SignIn() {
                     required
                   />
                 </div>
-                <Button type="submit" className="w-full">Sign In</Button>
+                <Button type="submit" className="w-full" disabled={loading}>
+                  {loading ? "Signing in..." : "Sign In"}
+                </Button>
               </div>
             </form>
           </CardContent>

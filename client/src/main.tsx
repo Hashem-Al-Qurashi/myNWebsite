@@ -1,14 +1,12 @@
+import { createRoot } from "react-dom/client";
+import App from "./App";
+import "./index.css";
 
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom'
-import App from './App'
-import './index.css'
+// Get the root element
+const rootElement = document.getElementById("root")!;
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>,
-)
+// Create the root with improved hydration options for faster initial load
+const root = createRoot(rootElement);
+
+// Render with concurrency features enabled for better performance
+root.render(<App />);

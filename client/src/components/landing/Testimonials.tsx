@@ -1,5 +1,6 @@
-
 import { motion } from "framer-motion";
+import { Card, CardContent } from "@/components/ui/card";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import {
   Carousel,
   CarouselContent,
@@ -7,8 +8,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { Card, CardContent } from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const testimonials = [
   {
@@ -41,7 +40,7 @@ const testimonials = [
     location: "Canada",
     image: "/attached_assets/testomny 4.jpeg",
     quote: "The structured approach and weekly feedback sessions were game-changers. Improved my speaking score from 6.5 to 7.5!",
-    improvement: "6.5 → 7.5"
+    improvement: "6.5 → 7.5",
   }
 ];
 
@@ -92,16 +91,14 @@ export default function Testimonials() {
         >
           <CarouselContent>
             {testimonials.map((testimonial, index) => (
-              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 p-2">
+              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  whileHover={{ y: -10 }}
-                  className="h-full"
                 >
-                  <Card className="h-full bg-card/50 backdrop-blur-sm border-primary/10 hover:border-primary/30 hover:shadow-xl transition-all duration-300">
+                  <Card className="h-full bg-card/50 backdrop-blur-sm border-primary/10 hover:shadow-xl transition-all duration-300">
                     <CardContent className="p-6">
                       <motion.div 
                         className="relative group"
@@ -115,7 +112,7 @@ export default function Testimonials() {
                             transition={{ duration: 0.4 }}
                           >
                             <AvatarImage 
-                              src={testimonial.image}
+                              src={testimonial.image} 
                               alt={testimonial.name}
                               className="object-cover"
                             />
@@ -133,7 +130,7 @@ export default function Testimonials() {
                           Band Score Improvement: {testimonial.improvement}
                         </span>
                       </div>
-                      <p className="italic text-foreground/80 text-sm">"{testimonial.quote}"</p>
+                      <p className="italic text-foreground/80">"{testimonial.quote}"</p>
                     </CardContent>
                   </Card>
                 </motion.div>

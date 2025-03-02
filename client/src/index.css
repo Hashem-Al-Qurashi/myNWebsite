@@ -75,7 +75,9 @@
     font-family: 'IBM Plex Sans Arabic', sans-serif;
   }
 
-  /* RTL support for Arabic text */
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap');
+
+/* RTL support for Arabic text */
   .rtl {
     direction: rtl;
     text-align: right;
@@ -110,22 +112,26 @@
     scroll-behavior: smooth;
   }
 
-  /* Custom scrollbar */
+  /* Custom scrollbar - lighter for better performance */
   ::-webkit-scrollbar {
-    width: 6px;
+    width: 4px;
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-secondary/30;
+    background-color: rgba(0, 0, 0, 0.05);
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-primary/30 rounded-full hover:bg-primary/50 transition-colors;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
   }
 
   /* Gradient text utility */
   .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-cyan-400 to-primary/50;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(to right, hsl(var(--primary)), hsl(200, 100%, 50%), hsl(var(--primary)/0.5));
   }
 
 /* Mobile menu animation */
@@ -137,6 +143,34 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Performance optimizations */
+.will-change-transform {
+  will-change: transform;
+}
+
+.hardware-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Reduce animation on mobile/low-power devices */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+  .reduce-motion-mobile {
+    transition-duration: 0.15s !important;
+    animation-duration: 0.15s !important;
   }
 }
 

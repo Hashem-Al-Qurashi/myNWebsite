@@ -1,4 +1,3 @@
-
 import { motion, useAnimation } from "framer-motion";
 import { useEffect, useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
@@ -16,7 +15,7 @@ export default function Testimonials() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const arrowControls = useAnimation();
   const isMobile = useMediaQuery("(max-width: 640px)");
-  
+
   // Start the continuous spiral animation for the arrow
   useEffect(() => {
     if (hoveredIndex !== null) {
@@ -57,7 +56,7 @@ export default function Testimonials() {
         >
           شهادات العملاء
         </motion.h2>
-        
+
         <Carousel
           opts={{
             align: "start",
@@ -80,7 +79,7 @@ export default function Testimonials() {
                   }}
                   onHoverStart={() => setHoveredIndex(index)}
                   onHoverEnd={() => setHoveredIndex(null)}
-                  className="testimonial-card bg-card rounded-lg shadow-md overflow-hidden relative z-30 h-full"
+                  className="testimonial-card bg-card rounded-lg shadow-md overflow-hidden relative z-30 h-full hardware-accelerated will-change-transform reduce-motion-mobile"
                 >
                   {/* Arrow indicator that appears on hover */}
                   {hoveredIndex === index && (
@@ -125,7 +124,7 @@ export default function Testimonials() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          
+
           <CarouselPrevious className="carousel-nav-arrow absolute left-0 top-1/2 -translate-y-1/2 z-30" />
           <CarouselNext className="carousel-nav-arrow absolute right-0 top-1/2 -translate-y-1/2 z-30" />
         </Carousel>

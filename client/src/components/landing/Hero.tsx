@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
+import { ArrowRight, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import AssessmentQuiz from "@/pages/AssessmentQuiz";
-import { ArrowRight, Download, MessageCircle } from "lucide-react";
 import { Link } from "wouter";
+import { useMediaQuery } from "@/lib/hooks/use-media-query";
+import { MessageCircle } from "lucide-react";
 
 export default function Hero() {
   return (

@@ -63,24 +63,38 @@ router.post('/register', protect, async (req, res) => {
 // @access  Public
 router.post('/login', async (req, res) => {
   try {
-    const { username, password } = req.body;
+    const { email, password } = req.body;
 
-    // Check for user email
-    const user = await User.findOne({ username });
-
-    if (user && (await user.matchPassword(password))) {
-      res.json({
-        message: 'Login successful',
-        token: generateToken(user._id),
-        user: {
-          _id: user._id,
-          username: user.username,
-          email: user.email,
-        },
-      });
-    } else {
-      res.status(401).json({ message: 'Invalid credentials' });
+    // Check if user exists by email
+    const user = await User.findOne({ email });
+    
+    if (!user) {
+      return res.status(401).json({ message: 'Invalid credentials' });
     }
+
+    // Compare password
+    const isMatch = await user.matchPassword(password);
+    
+    if (!isMatch) {
+      return res.status(401).json({ message: 'Invalid credentials' });
+    }
+
+    // Generate JWT token
+    const token = jwt.sign(
+      { userId: user._id }, 
+      process.env.JWT_SECRET || 'fallback_secret', 
+      { expiresIn: '1h' }
+    );
+
+    res.json({
+      message: 'Login successful',
+      token,
+      user: {
+        _id: user._id,
+        username: user.username,
+        email: user.email,
+      }
+    });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Server error', error: error.message });

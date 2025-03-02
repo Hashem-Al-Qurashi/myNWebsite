@@ -31,6 +31,9 @@ const protect = async (req, res, next) => {
   }
 };
 
+// Import JWT
+const jwt = require('jsonwebtoken');
+
 // Auth middleware for protected routes
 const authMiddleware = (req, res, next) => {
   // Get token from header

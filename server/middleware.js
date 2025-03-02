@@ -31,4 +31,31 @@ const protect = async (req, res, next) => {
   }
 };
 
-module.exports = { protect };
+// Auth middleware for protected routes
+const authMiddleware = (req, res, next) => {
+  // Get token from header
+  const authHeader = req.headers.authorization;
+  
+  // Check if token exists
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    return res.status(401).json({ message: 'Unauthorized' });
+  }
+  
+  const token = authHeader.split(' ')[1];
+  
+  try {
+    // Verify token
+    const decoded = jwt.verify(token, process.env.JWT_SECRET || 'fallback_secret');
+    
+    // Add user info to request
+    req.user = { userId: decoded.userId };
+    
+    // Allow request to proceed
+    next();
+  } catch (error) {
+    console.error('Token verification failed:', error.message);
+    return res.status(401).json({ message: 'Unauthorized' });
+  }
+};
+
+module.exports = { protect, authMiddleware };

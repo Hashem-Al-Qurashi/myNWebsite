@@ -4,6 +4,7 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const authRoutes = require('./authRoutes');
 const { connectDB } = require('./db');
+const { authMiddleware } = require('./middleware');
 
 // Load environment variables
 dotenv.config();
@@ -24,6 +25,14 @@ app.use('/api/auth', authRoutes);
 // Basic route
 app.get('/api', (req, res) => {
   res.json({ message: 'API is running' });
+});
+
+// Protected route example
+app.get('/api/protected-content', authMiddleware, (req, res) => {
+  res.json({ 
+    message: 'You have access to protected content',
+    user: req.user
+  });
 });
 
 // Start server

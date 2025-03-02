@@ -23,6 +23,28 @@ export default function Courses() {
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 md:mb-8 rtl gradient-text leading-tight text-center mx-auto px-2">
               إيش اللي يميز دورتي عن أي دورة ثانية؟
             </h2>
+            
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="mb-10 md:mb-16 max-w-6xl mx-auto overflow-hidden rounded-3xl bg-gradient-to-r from-primary/20 via-card/80 to-primary/20 border-2 border-primary/30 shadow-2xl shadow-primary/10 backdrop-blur-lg p-6 md:p-10"
+            >
+              <motion.div
+                initial={{ y: 20, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.3, duration: 0.5 }}
+                className="text-center"
+              >
+                <h2 className="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-4 md:mb-6 rtl tracking-tight gradient-text text-center mx-auto">
+                  خاصة ومباشرة
+                </h2>
+                <p className="text-base md:text-2xl text-foreground/90 rtl max-w-4xl mx-auto leading-relaxed">
+                  بكل بساطة، دورتي خاصة ومباشرة، مو دورة معلبة للجميع! لأنك مميز وتستاهل اهتمام كامل، أكون معاك بتركيزي الكامل.
+                </p>
+              </motion.div>
+            </motion.div>
           </motion.div>
 
           
@@ -82,28 +104,7 @@ export default function Courses() {
             </motion.div>
           </div>
 
-          {/* Giant highlight message */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="mb-10 md:mb-20 max-w-6xl mx-auto overflow-hidden rounded-3xl bg-gradient-to-r from-primary/20 via-card/80 to-primary/20 border-2 border-primary/30 shadow-2xl shadow-primary/10 backdrop-blur-lg p-6 md:p-10"
-          >
-            <motion.div
-              initial={{ y: 20, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.3, duration: 0.5 }}
-              className="text-center"
-            >
-              <h2 className="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-4 md:mb-6 rtl tracking-tight gradient-text text-center mx-auto">
-                خاصة ومباشرة
-              </h2>
-              <p className="text-base md:text-2xl text-foreground/90 rtl max-w-4xl mx-auto leading-relaxed">
-                بكل بساطة، دورتي خاصة ومباشرة، مو دورة معلبة للجميع! لأنك مميز وتستاهل اهتمام كامل، أكون معاك بتركيزي الكامل.
-              </p>
-            </motion.div>
-          </motion.div>
+          {/* Giant highlight message moved to below the main heading */}
         </div>
       </section>
 

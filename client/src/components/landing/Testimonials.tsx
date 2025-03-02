@@ -126,10 +126,8 @@ export default function Testimonials() {
             ))}
           </CarouselContent>
           
-          <div className="flex justify-center mt-8">
-            <CarouselPrevious className="mx-2 relative static transform-none" />
-            <CarouselNext className="mx-2 relative static transform-none" />
-          </div>
+          <CarouselPrevious className="carousel-nav-arrow absolute left-0 top-1/2 -translate-y-1/2 z-30" />
+          <CarouselNext className="carousel-nav-arrow absolute right-0 top-1/2 -translate-y-1/2 z-30" />
         </Carousel>
       </div>
     </section>

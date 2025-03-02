@@ -1,6 +1,6 @@
 
-const jwt = require('jsonwebtoken');
-const User = require('./userModel');
+import jwt from 'jsonwebtoken';
+import User from './userModel.js';
 
 const protect = async (req, res, next) => {
   let token;
@@ -31,9 +31,6 @@ const protect = async (req, res, next) => {
   }
 };
 
-// Import JWT
-const jwt = require('jsonwebtoken');
-
 // Auth middleware for protected routes
 const authMiddleware = (req, res, next) => {
   // Get token from header
@@ -61,4 +58,4 @@ const authMiddleware = (req, res, next) => {
   }
 };
 
-module.exports = { protect, authMiddleware };
+export { protect, authMiddleware };

@@ -2,12 +2,12 @@
 import { motion } from "framer-motion";
 
 export default function Testimonials() {
-  // Using placeholder images since the original images are not loading
+  // Using properly formatted paths to the testimonial images
   const testimonialImages = [
-    "./public/testomny-1.jpeg",
-    "./public/testomny-2.jpeg",
-    "./public/testomny-3.jpeg",
-    "./public/testomny-4.jpeg",
+    "/attached_assets/testomny-1.jpeg",
+    "/attached_assets/testomny-2.jpeg",
+    "/attached_assets/testomny-3.jpeg",
+    "/attached_assets/testomny-4.jpeg",
   ]
 
   return (
@@ -40,7 +40,7 @@ export default function Testimonials() {
                 <motion.img
                   src={image}
                   alt={`Testimonial ${index + 1}`}
-                  className="w-full h-auto object-cover"
+                  className="w-full h-auto object-contain"
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.3 }}
                   onError={(e) => {

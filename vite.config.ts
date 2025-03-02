@@ -34,6 +34,18 @@ export default defineConfig({
     outDir: path.resolve(__dirname, "dist/public"),
     emptyOutDir: true,
     assetsInclude: ['**/*.md', '**/*.jpeg', '**/*.jpg', '**/*.png', '**/*.svg', '**/*.gif'],
+    assetsDir: 'assets',
+    rollupOptions: {
+      output: {
+        assetFileNames: (assetInfo) => {
+          let extType = assetInfo.name.split('.').at(1);
+          if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
+            extType = 'img';
+          }
+          return `assets/${extType}/[name][extname]`;
+        },
+      },
+    },
   },
   server: {
     fs: {

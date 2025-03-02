@@ -13,16 +13,27 @@ const generateToken = (id) => {
   });
 };
 
-// @desc    Register a new user
+// @desc    Register a new user (Admin only)
 // @route   POST /api/auth/register
-// @access  Public
-router.post('/register', async (req, res) => {
+// @access  Private/Admin
+router.post('/register', protect, async (req, res) => {
   try {
-    const { username, email, password } = req.body;
+    // Check if the requester is the admin
+    const adminId = process.env.ADMIN_USER_ID; // Set this in your .env file
+    if (req.user._id.toString() !== adminId) {
+      return res.status(403).json({ message: 'Not authorized. Only admin can register users.' });
+    }
+
+    const { email, password } = req.body;
+    const username = email.split('@')[0]; // Optional: Generate username from email
+
+    // Validate required fields
+    if (!email || !password) {
+      return res.status(400).json({ message: 'Please provide all required fields' });
+    }
 
     // Check if user exists
-    const userExists = await User.findOne({ $or: [{ email }, { username }] });
-
+    const userExists = await User.findOne({ email });
     if (userExists) {
       return res.status(400).json({ message: 'User already exists' });
     }
@@ -31,18 +42,12 @@ router.post('/register', async (req, res) => {
     const user = await User.create({
       username,
       email,
-      password,
+      password, // password will be hashed in the userModel pre-save hook
     });
 
     if (user) {
       res.status(201).json({
-        message: 'User created successfully',
-        token: generateToken(user._id),
-        user: {
-          _id: user._id,
-          username: user.username,
-          email: user.email,
-        },
+        message: 'User registered successfully'
       });
     } else {
       res.status(400).json({ message: 'Invalid user data' });

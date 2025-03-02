@@ -239,29 +239,65 @@ nav a {
   transition: all 0.4s ease;
 }
 
+.testimonial-card {
+  transform-origin: center;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(var(--primary-rgb), 0.1);
+  cursor: pointer;
+}
+
 .testimonial-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 25px rgba(var(--primary-rgb), 0.15);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(var(--primary-rgb), 0.2);
   border-color: rgba(var(--primary-rgb), 0.3);
+  z-index: 10;
 }
 
 .testimonial-image-container {
   position: relative;
   overflow: hidden;
+  height: 200px;
 }
 
-.testimonial-image-container::after {
-  content: '';
+.testimonial-image-container img {
+  transition: transform 0.5s ease, filter 0.3s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.testimonial-card:hover .testimonial-image-container img {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+.testimonial-overlay {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(var(--primary-rgb), 0.1);
+  background: linear-gradient(to top, rgba(var(--primary-rgb), 0.3), transparent);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
-.testimonial-card:hover .testimonial-image-container::after {
+.testimonial-card:hover .testimonial-overlay {
   opacity: 1;
+}
+
+.testimonial-card h3 {
+  transition: color 0.3s ease;
+}
+
+.testimonial-card:hover h3 {
+  color: hsl(var(--primary));
+}
+
+.testimonial-card p {
+  transition: all 0.3s ease;
+}
+
+.testimonial-card:hover p {
+  color: hsl(var(--foreground));
 }

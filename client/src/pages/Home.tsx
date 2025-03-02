@@ -11,7 +11,7 @@ function Home() {
     <div className="min-h-screen">
       <Hero />
       <Features />
-      <Testimonials /> {/* Added Testimonials component */}
+      <Testimonials />
       <SocialReels /> {/* Added SocialReels component */}
 
       <section className="py-20 bg-gradient-to-b from-background to-primary/5">

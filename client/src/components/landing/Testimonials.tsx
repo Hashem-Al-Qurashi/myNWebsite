@@ -1,15 +1,14 @@
+
 import { motion } from "framer-motion";
 
 export default function Testimonials() {
-  // Since your images are in the public folder as confirmed
-  // Vite treats the public folder as the root directory for static assets
+  // Using placeholder images since the original images are not loading
   const testimonialImages = [
-    "./public/testomny-1.jpeg",
-    "./public/testomny-2.jpeg",
-    "./public/testomny-3.jpeg",
-    "./public/testomny-4.jpeg",
-  ]
-
+    "/placeholder.jpg",
+    "/placeholder.jpg",
+    "/placeholder.jpg",
+    "/placeholder.jpg",
+  ];
 
   return (
     <section className="py-16 bg-background relative z-20">
@@ -29,33 +28,47 @@ export default function Testimonials() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-card rounded-lg shadow-md overflow-hidden relative z-30"
+              whileHover={{ 
+                scale: 1.05, 
+                rotate: 2,
+                y: -10,
+                transition: { duration: 0.3 }
+              }}
+              className="testimonial-card bg-card rounded-lg shadow-md overflow-hidden relative z-30"
             >
-              {/* Using the debugging technique to see exactly what's happening */}
-              <div className="text-xs bg-red-100 p-1">Debug: {image}</div>
-              <img
-                src={image}
-                alt={`Testimonial ${index + 1}`}
-                className="w-full h-auto object-cover"
-                onError={(e) => {
-                  console.error(`Failed to load image: ${image}`);
-                  // Adding fallback to a data URI so it always works
-                  e.target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23f0f0f0'/%3E%3Ctext x='50' y='50' font-family='Arial' font-size='12' text-anchor='middle' alignment-baseline='middle' fill='%23999'%3EImage not found%3C/text%3E%3C/svg%3E";
-                  // Remove the debug info after error
-                  const parent = e.target.parentElement;
-                  if (parent && parent.querySelector('div')) {
-                    parent.querySelector('div').style.backgroundColor = '#fee2e2';
-                  }
-                }}
-                onLoad={(e) => {
-                  // On successful load, update the debug info
-                  const parent = e.target.parentElement;
-                  if (parent && parent.querySelector('div')) {
-                    parent.querySelector('div').style.backgroundColor = '#dcfce7';
-                    parent.querySelector('div').textContent = 'Loaded: ' + image;
-                  }
-                }}
-              />
+              <div className="testimonial-image-container">
+                <motion.img
+                  src={image}
+                  alt={`Testimonial ${index + 1}`}
+                  className="w-full h-auto object-cover"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.3 }}
+                  onError={(e) => {
+                    console.error(`Failed to load image: ${image}`);
+                    // Adding fallback to a placeholder
+                    e.currentTarget.src = '/placeholder.jpg';
+                  }}
+                />
+                <motion.div 
+                  className="testimonial-overlay"
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                />
+              </div>
+              <motion.div 
+                className="p-4 text-center"
+                whileHover={{ backgroundColor: "rgba(var(--primary-rgb), 0.05)" }}
+                transition={{ duration: 0.3 }}
+              >
+                <h3 className="font-bold mb-1">عميل {index + 1}</h3>
+                <p className="text-sm text-muted-foreground">
+                  {index === 0 && "استفدت كثيراً من دوراتهم في تحسين مستواي"}
+                  {index === 1 && "ساعدوني في الحصول على درجة 7.5 من المحاولة الأولى"}
+                  {index === 2 && "أسلوب شرح ممتاز ونصائح قيمة طوال الدورة"}
+                  {index === 3 && "أفضل منصة لتحضير اختبار الآيلتس بدون منازع"}
+                </p>
+              </motion.div>
             </motion.div>
           ))}
         </div>

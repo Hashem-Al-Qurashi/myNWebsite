@@ -5,33 +5,25 @@ import User from './userModel.js';
 
 const router = express.Router();
 
-// @route   POST /api/auth/register
-// @desc    Register a new user (admin only)
-// @access  Protected
+// Register route (admin only)
 router.post('/register', async (req, res) => {
-  const { email, password } = req.body;
-
   try {
-    // Check if admin user (for simplicity, we'll just check a special header)
-    // In a real app, you'd want proper admin authentication
-    const isAdmin = req.headers['x-admin-key'] === process.env.ADMIN_KEY;
-
-    if (!isAdmin) {
-      return res.status(403).json({ message: 'Admin access required' });
-    }
+    const { email, password } = req.body;
 
     // Check if user already exists
     const userExists = await User.findOne({ email });
-
     if (userExists) {
       return res.status(400).json({ message: 'User already exists' });
     }
 
-    // Create user (no need to hash password here, it's done in the model)
+    // Hash password
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // Create user
     const user = await User.create({
-      username: email.split('@')[0], // Simple username from email
       email,
-      password,
+      password: hashedPassword
     });
 
     if (user) {
@@ -40,33 +32,29 @@ router.post('/register', async (req, res) => {
       res.status(400).json({ message: 'Invalid user data' });
     }
   } catch (error) {
-    console.error('Registration error:', error);
+    console.error(error);
     res.status(500).json({ message: 'Server error' });
   }
 });
 
-// @route   POST /api/auth/login
-// @desc    Authenticate user and get token
-// @access  Public
+// Login route
 router.post('/login', async (req, res) => {
-  const { email, password } = req.body;
-
   try {
-    // Find user
-    const user = await User.findOne({ email });
+    const { email, password } = req.body;
 
+    // Check if user exists
+    const user = await User.findOne({ email });
     if (!user) {
       return res.status(401).json({ message: 'Invalid credentials' });
     }
 
-    // Match password
-    const isMatch = await user.matchPassword(password);
-
+    // Compare passwords
+    const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
       return res.status(401).json({ message: 'Invalid credentials' });
     }
 
-    // Generate JWT
+    // Generate JWT token
     const token = jwt.sign(
       { userId: user._id },
       process.env.JWT_SECRET || 'fallback_secret',
@@ -75,15 +63,10 @@ router.post('/login', async (req, res) => {
 
     res.json({
       message: 'Login successful',
-      token,
-      user: {
-        id: user._id,
-        username: user.username,
-        email: user.email,
-      },
+      token
     });
   } catch (error) {
-    console.error('Login error:', error);
+    console.error(error);
     res.status(500).json({ message: 'Server error' });
   }
 });

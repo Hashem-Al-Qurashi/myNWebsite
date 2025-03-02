@@ -30,3 +30,26 @@ function Home() {
 }
 
 export default Home;
+import { Link } from 'react-router-dom'
+import { Button } from "@/components/ui/button"
+
+export default function Home() {
+  return (
+    <div className="container mx-auto py-16 px-4">
+      <div className="max-w-3xl mx-auto text-center">
+        <h1 className="text-4xl font-bold mb-6">Welcome to Our Application</h1>
+        <p className="text-xl mb-8">
+          A secure application with authentication and protected routes
+        </p>
+        <div className="flex justify-center gap-4">
+          <Button asChild>
+            <Link to="/signin">Sign In</Link>
+          </Button>
+          <Button variant="outline" asChild>
+            <Link to="/protected">Protected Content</Link>
+          </Button>
+        </div>
+      </div>
+    </div>
+  )
+}

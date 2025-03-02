@@ -4,11 +4,11 @@ import { motion } from "framer-motion";
 export default function Testimonials() {
   // Using placeholder images since the original images are not loading
   const testimonialImages = [
-    "/placeholder.jpg",
-    "/placeholder.jpg",
-    "/placeholder.jpg",
-    "/placeholder.jpg",
-  ];
+    "./public/testomny-1.jpeg",
+    "./public/testomny-2.jpeg",
+    "./public/testomny-3.jpeg",
+    "./public/testomny-4.jpeg",
+  ]
 
   return (
     <section className="py-16 bg-background relative z-20">

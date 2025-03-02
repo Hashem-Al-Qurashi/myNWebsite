@@ -4,13 +4,14 @@ import { Button } from "@/components/ui/button";
 import React from "react";
 import { motion } from "framer-motion";
 import SocialReels from "@/components/landing/SocialReels"; // Added import
-
+import Testimonials from "@/components/landing/Testimonials";
 
 function Home() {
   return (
     <div className="min-h-screen">
       <Hero />
       <Features />
+      <Testimonials /> {/* Added Testimonials component */}
       <SocialReels /> {/* Added SocialReels component */}
 
       <section className="py-20 bg-gradient-to-b from-background to-primary/5">

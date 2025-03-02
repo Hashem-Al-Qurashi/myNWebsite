@@ -3,6 +3,7 @@ import Features from "@/components/landing/Features";
 import { Button } from "@/components/ui/button";
 import React from "react";
 import { motion } from "framer-motion";
+import SocialReels from "@/components/landing/SocialReels"; // Added import
 
 
 const testimonials = [
@@ -45,6 +46,7 @@ export default function Home() {
       <Hero />
       <Features />
       <NewTestimonials />
+      <SocialReels /> {/* Added SocialReels component */}
 
       <section className="py-20 bg-gradient-to-b from-background to-primary/5">
         <div className="container mx-auto text-center">

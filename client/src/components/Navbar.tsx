@@ -105,7 +105,7 @@ export default function Navbar() {
                 <a href="/signin">Sign In</a>
               </Button>
               <Button variant="ghost" size="sm" className="hidden md:flex" asChild>
-                <Link href="/assessment">حدد مستواك</Link>
+                
               </Button>
               
               {/* Mobile menu toggle button */}

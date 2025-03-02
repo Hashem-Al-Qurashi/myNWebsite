@@ -84,7 +84,6 @@ export default function Hero() {
               >
                 حدد مستواك!
                 <ArrowRight className="mr-2 h-5 w-5" />
-               
               </Button>
               <Button 
                 size="lg" 

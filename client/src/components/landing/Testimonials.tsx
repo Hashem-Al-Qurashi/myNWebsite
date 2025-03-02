@@ -72,10 +72,8 @@ export default function Testimonials() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   whileHover={{ 
-                    scale: 1.05, 
-                    rotate: 2,
-                    y: -10,
-                    transition: { duration: 0.3 }
+                    scale: 1.02,
+                    transition: { duration: 0.2 }
                   }}
                   onHoverStart={() => setHoveredIndex(index)}
                   onHoverEnd={() => setHoveredIndex(null)}
@@ -91,12 +89,11 @@ export default function Testimonials() {
                     </motion.div>
                   )}
                   <div className="testimonial-image-container">
-                    <motion.img
+                    <img
                       src={image}
                       alt={`Testimonial ${index + 1}`}
                       className="max-w-full max-h-full w-auto h-auto"
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.3 }}
+                      loading="lazy"
                       onError={(e) => {
                         console.error(`Failed to load image: ${image}`);
                         // Adding fallback to a placeholder

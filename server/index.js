@@ -1,10 +1,10 @@
 
-const express = require('express');
-const cors = require('cors');
-const dotenv = require('dotenv');
-const authRoutes = require('./authRoutes');
-const { connectDB } = require('./db');
-const { authMiddleware } = require('./middleware');
+import express from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import authRoutes from './authRoutes.js';
+import { connectDB } from './db.js';
+import { authMiddleware } from './middleware.js';
 
 // Load environment variables
 dotenv.config();

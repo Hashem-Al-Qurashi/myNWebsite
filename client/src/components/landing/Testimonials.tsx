@@ -1,7 +1,26 @@
 
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
+import { useEffect, useState } from "react";
+import { ArrowDown } from "lucide-react";
 
 export default function Testimonials() {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const arrowControls = useAnimation();
+  
+  // Start the continuous spiral animation for the arrow
+  useEffect(() => {
+    if (hoveredIndex !== null) {
+      arrowControls.start({
+        rotate: [0, 360],
+        y: [0, 5, 0],
+        transition: { 
+          rotate: { repeat: Infinity, duration: 2, ease: "linear" },
+          y: { repeat: Infinity, duration: 1, ease: "easeInOut" }
+        }
+      });
+    }
+  }, [hoveredIndex, arrowControls]);
+
   // Using properly formatted paths to the testimonial images
   const testimonialImages = [
     "./public/testomny-1.jpeg",
@@ -32,10 +51,22 @@ export default function Testimonials() {
                 scale: 1.05, 
                 rotate: 2,
                 y: -10,
+                x: index % 2 === 0 ? 15 : -15, // Move even cards right, odd cards left
                 transition: { duration: 0.3 }
               }}
+              onHoverStart={() => setHoveredIndex(index)}
+              onHoverEnd={() => setHoveredIndex(null)}
               className="testimonial-card bg-card rounded-lg shadow-md overflow-hidden relative z-30"
             >
+              {/* Arrow indicator that appears on hover */}
+              {hoveredIndex === index && (
+                <motion.div 
+                  className="absolute -top-12 left-1/2 transform -translate-x-1/2 z-40"
+                  animate={arrowControls}
+                >
+                  <ArrowDown className="h-8 w-8 text-primary" />
+                </motion.div>
+              )}
               <div className="testimonial-image-container">
                 <motion.img
                   src={image}

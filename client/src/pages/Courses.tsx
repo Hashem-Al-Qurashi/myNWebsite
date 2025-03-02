@@ -25,6 +25,8 @@ export default function Courses() {
             </h2>
           </motion.div>
 
+          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}

@@ -18,7 +18,7 @@ const testimonials: Testimonial[] = [
     name: "Ahmed Hassan",
     role: "Band 7.5 Achiever",
     location: "UAE",
-    image: "/attached_assets/testomny 1.jpeg",
+    image: "./attached_assets/testomny 1.jpeg",
     quote: "Before joining, I struggled with IELTS Reading (Band 5.5). After following the proven strategies here, I achieved Band 7.5! The personalized feedback made all the difference.",
     improvement: "5.5 → 7.5",
   },
@@ -27,7 +27,7 @@ const testimonials: Testimonial[] = [
     name: "Sarah Chen",
     role: "Band 8.0 Achiever",
     location: "Singapore",
-    image: "/attached_assets/testomny 2.jpeg",
+    image: "./attached_assets/testomny 2.jpeg",
     quote: "The writing templates and speaking strategies helped me secure Band 8.0. The mock tests are incredibly close to the real exam. Worth every minute!",
     improvement: "6.0 → 8.0",
   },
@@ -36,7 +36,7 @@ const testimonials: Testimonial[] = [
     name: "Maria Rodriguez",
     role: "Band 7.0 Achiever",
     location: "Mexico",
-    image: "/attached_assets/testomny 3.jpeg",
+    image: "./attached_assets/testomny 3.jpeg",
     quote: "The listening practice materials are excellent! I went from Band 6.0 to 7.0 in just 6 weeks. The step-by-step approach really works.",
     improvement: "6.0 → 7.0",
   },
@@ -45,7 +45,7 @@ const testimonials: Testimonial[] = [
     name: "John Smith",
     role: "Band 7.5 Achiever",
     location: "Canada",
-    image: "/attached_assets/testomny 4.jpeg",
+    image: "./attached_assets/testomny 4.jpeg",
     quote: "The structured approach and weekly feedback sessions were game-changers. Improved my speaking score from 6.5 to 7.5!",
     improvement: "6.5 → 7.5",
   },
@@ -87,13 +87,21 @@ export default function NewTestimonials() {
                     transition={{ duration: 0.3 }}
                     className="testimonial-image-container relative w-full h-52 overflow-hidden"
                   >
-                    <motion.img
-                      src={testimonial.image}
-                      alt={testimonial.name}
+                    <motion.div
                       whileHover={{ scale: 1.15 }}
                       transition={{ duration: 0.4 }}
-                      className="w-full h-full object-cover"
-                    />
+                      className="w-full h-full"
+                    >
+                      <img
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          console.error(`Failed to load image: ${testimonial.image}`);
+                          e.currentTarget.src = "./attached_assets/testomny 1.jpeg"; // Fallback image
+                        }}
+                      />
+                    </motion.div>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     <div className="absolute bottom-4 left-4 text-white">
                       <p className="font-semibold text-lg">{testimonial.name}</p>

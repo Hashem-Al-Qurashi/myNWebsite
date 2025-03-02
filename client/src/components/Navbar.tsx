@@ -57,7 +57,7 @@ export default function Navbar() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link href="/">
-            <a className="text-xl font-bold text-primary">EduPro</a>
+            <a className="text-xl font-bold text-primary">IELTS with Hashem</a>
           </Link>
 
           <div className="flex items-center gap-4 md:gap-8">

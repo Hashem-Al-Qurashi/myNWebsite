@@ -142,14 +142,13 @@ export default function Navbar() {
 
               ].map((item) => (
                 <Link key={item.path} href={item.path}>
-                  <a 
-                    className={`block px-2 py-2 text-foreground/80 hover:text-foreground hover:bg-accent/50 rounded-md ${
+                  <span className={`block px-2 py-2 text-foreground/80 hover:text-foreground hover:bg-accent/50 rounded-md ${
                       location === item.path ? "text-primary font-medium" : ""
                     }`}
                     onClick={closeMobileMenu}
                   >
                     {item.name}
-                  </a>
+                  </span>
                 </Link>
               ))}
             </div>

@@ -4,12 +4,12 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { motion } from "framer-motion";
-import { useLocation } from "wouter";
+import { useNavigate } from "react-router-dom"; // Corrected import
 
 export default function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [, navigate] = useNavigate();
+  const navigate = useNavigate(); // Corrected usage
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

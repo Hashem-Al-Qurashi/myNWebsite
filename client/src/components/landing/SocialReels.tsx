@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, Instagram, X } from "lucide-react";
 
@@ -58,8 +58,8 @@ const demoReels: SocialReel[] = [
 
 export default function SocialReels() {
   const [activeReel, setActiveReel] = useState<SocialReel | null>(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const reelsPerPage = { mobile: 1, tablet: 2, desktop: 3 };
+  const [slidePosition, setSlidePosition] = useState(0);
+  const carouselRef = useRef<HTMLDivElement>(null);
 
   // Load embed scripts when a reel is opened
   useEffect(() => {
@@ -92,20 +92,48 @@ export default function SocialReels() {
     }
   }, [activeReel]);
 
+  // Function to shift the carousel to display the next set of cards
   const handleNextClick = () => {
-    setCurrentIndex(prev => 
-      prev + reelsPerPage.desktop >= demoReels.length ? 0 : prev + 1
-    );
+    setSlidePosition((prev) => prev - 100);
   };
 
+  // Function to shift the carousel to display the previous set of cards
   const handlePrevClick = () => {
-    setCurrentIndex(prev => 
-      prev <= 0 ? Math.max(0, demoReels.length - reelsPerPage.desktop) : prev - 1
-    );
+    setSlidePosition((prev) => prev + 100);
   };
+
+  // Reset position when it exceeds a certain threshold to create infinite loop effect
+  useEffect(() => {
+    if (slidePosition < -300) {
+      // When scrolled too far right, loop back
+      setSlidePosition(0);
+    } else if (slidePosition > 0) {
+      // When scrolled too far left, loop back
+      setSlidePosition(-300);
+    }
+  }, [slidePosition]);
+
+  // Enable keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight") {
+        handleNextClick();
+      } else if (e.key === "ArrowLeft") {
+        handlePrevClick();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
 
   const openReel = (reel: SocialReel) => setActiveReel(reel);
   const closeReel = () => setActiveReel(null);
+
+  // Create an extended array of reels for infinite scrolling
+  const extendedReels = [...demoReels, ...demoReels, ...demoReels];
 
   const renderInstagramEmbed = (embedUrl: string) => (
     <div className="w-full max-w-md mx-auto">
@@ -196,6 +224,7 @@ export default function SocialReels() {
               size="icon" 
               className="h-10 w-10 rounded-full bg-background/80 backdrop-blur-sm shadow-md hover:bg-background"
               onClick={handlePrevClick}
+              aria-label="Previous reel"
             >
               <ChevronLeft className="h-6 w-6" />
             </Button>
@@ -207,32 +236,27 @@ export default function SocialReels() {
               size="icon" 
               className="h-10 w-10 rounded-full bg-background/80 backdrop-blur-sm shadow-md hover:bg-background"
               onClick={handleNextClick}
+              aria-label="Next reel"
             >
               <ChevronRight className="h-6 w-6" />
             </Button>
           </div>
 
-          <div className="overflow-hidden py-4 touch-pan-x">
+          <div className="overflow-hidden py-8">
+            {/* Carousel container showing all three reels at once */}
             <div 
-              className="flex transition-transform duration-500 ease-in-out gap-4 md:gap-6 cursor-grab active:cursor-grabbing"
-              style={{ 
-                transform: `translateX(${-currentIndex * (100 / reelsPerPage.desktop)}%)`,
-                touchAction: 'pan-x'
-              }}
+              ref={carouselRef}
+              className="relative"
             >
-              {demoReels.map((reel) => (
-                <motion.div
-                  key={reel.id}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.4 }}
-                  viewport={{ once: true }}
-                  className="min-w-full md:min-w-[calc(50%-12px)] lg:min-w-[calc(33.333%-16px)] flex-shrink-0 touch-pan-y"
-                  style={{ touchAction: 'pan-x' }}
-                >
+              <motion.div 
+                className="flex gap-4 justify-center"
+                animate={{ x: `${slidePosition}%` }}
+                transition={{ type: "spring", stiffness: 200, damping: 30 }}
+              >
+                {extendedReels.map((reel, index) => (
                   <Card 
-                    className="overflow-hidden cursor-pointer h-full border-primary/10 hover:border-primary/30 transition-all"
+                    key={`${reel.id}-${index}`}
+                    className="flex-shrink-0 w-64 overflow-hidden cursor-pointer border-primary/10 hover:border-primary/30 transition-all"
                     onClick={() => openReel(reel)}
                   >
                     <div className="relative aspect-[9/16] overflow-hidden">
@@ -254,12 +278,12 @@ export default function SocialReels() {
                             {reel.platform === 'instagram' ? 'Instagram' : 'TikTok'}
                           </span>
                         </div>
-                        <h3 className="text-xl font-bold text-white text-center">{reel.title}</h3>
+                        <h3 className="text-lg font-bold text-white text-center">{reel.title}</h3>
                       </div>
                     </div>
                   </Card>
-                </motion.div>
-              ))}
+                ))}
+              </motion.div>
             </div>
           </div>
         </div>

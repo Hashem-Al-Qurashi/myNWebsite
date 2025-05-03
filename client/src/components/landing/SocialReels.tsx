@@ -212,10 +212,13 @@ export default function SocialReels() {
             </Button>
           </div>
 
-          <div className="overflow-hidden py-4">
+          <div className="overflow-hidden py-4 touch-pan-x">
             <div 
-              className="flex transition-transform duration-500 ease-in-out gap-4 md:gap-6"
-              style={{ transform: `translateX(${-currentIndex * (100 / reelsPerPage.desktop)}%)` }}
+              className="flex transition-transform duration-500 ease-in-out gap-4 md:gap-6 cursor-grab active:cursor-grabbing"
+              style={{ 
+                transform: `translateX(${-currentIndex * (100 / reelsPerPage.desktop)}%)`,
+                touchAction: 'pan-x'
+              }}
             >
               {demoReels.map((reel) => (
                 <motion.div
@@ -225,7 +228,8 @@ export default function SocialReels() {
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.4 }}
                   viewport={{ once: true }}
-                  className="min-w-full md:min-w-[calc(50%-12px)] lg:min-w-[calc(33.333%-16px)] flex-shrink-0"
+                  className="min-w-full md:min-w-[calc(50%-12px)] lg:min-w-[calc(33.333%-16px)] flex-shrink-0 touch-pan-y"
+                  style={{ touchAction: 'pan-x' }}
                 >
                   <Card 
                     className="overflow-hidden cursor-pointer h-full border-primary/10 hover:border-primary/30 transition-all"
@@ -250,7 +254,7 @@ export default function SocialReels() {
                             {reel.platform === 'instagram' ? 'Instagram' : 'TikTok'}
                           </span>
                         </div>
-                        <h3 className="text-xl font-bold text-white rtl">{reel.title}</h3>
+                        <h3 className="text-xl font-bold text-white text-center">{reel.title}</h3>
                       </div>
                     </div>
                   </Card>

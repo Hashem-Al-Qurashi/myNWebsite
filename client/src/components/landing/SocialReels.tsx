@@ -58,8 +58,23 @@ const demoReels: SocialReel[] = [
 
 export default function SocialReels() {
   const [activeReel, setActiveReel] = useState<SocialReel | null>(null);
-  const [slidePosition, setSlidePosition] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [transitionEnabled, setTransitionEnabled] = useState(true);
   const carouselRef = useRef<HTMLDivElement>(null);
+
+  // Create a circular array of reels
+  const getVisibleReels = () => {
+    const reelsCount = demoReels.length;
+    const prevIndex = (currentIndex - 1 + reelsCount) % reelsCount;
+    const nextIndex = (currentIndex + 1) % reelsCount;
+    return [
+      demoReels[prevIndex],
+      demoReels[currentIndex],
+      demoReels[nextIndex],
+    ];
+  };
 
   // Load embed scripts when a reel is opened
   useEffect(() => {
@@ -92,26 +107,40 @@ export default function SocialReels() {
     }
   }, [activeReel]);
 
-  // Function to shift the carousel to display the next set of cards
-  const handleNextClick = () => {
-    setSlidePosition((prev) => prev - 100);
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % demoReels.length);
   };
 
-  // Function to shift the carousel to display the previous set of cards
-  const handlePrevClick = () => {
-    setSlidePosition((prev) => prev + 100);
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev - 1 + demoReels.length) % demoReels.length);
   };
 
-  // Reset position when it exceeds a certain threshold to create infinite loop effect
-  useEffect(() => {
-    if (slidePosition < -300) {
-      // When scrolled too far right, loop back
-      setSlidePosition(0);
-    } else if (slidePosition > 0) {
-      // When scrolled too far left, loop back
-      setSlidePosition(-300);
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setIsDragging(true);
+    setStartX(e.touches[0].clientX);
+    setTransitionEnabled(false);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging) return;
+    const currentX = e.touches[0].clientX;
+    const diff = startX - currentX;
+    
+    if (Math.abs(diff) > 50) {
+      setIsDragging(false);
+      setTransitionEnabled(true);
+      if (diff > 0) {
+        handleNext();
+      } else {
+        handlePrev();
+      }
     }
-  }, [slidePosition]);
+  };
+
+  const handleTouchEnd = () => {
+    setIsDragging(false);
+    setTransitionEnabled(true);
+  };
 
   // Enable keyboard navigation
   useEffect(() => {
@@ -223,7 +252,7 @@ export default function SocialReels() {
               variant="ghost" 
               size="icon" 
               className="h-10 w-10 rounded-full bg-background/80 backdrop-blur-sm shadow-md hover:bg-background"
-              onClick={handlePrevClick}
+              onClick={handlePrev}
               aria-label="Previous reel"
             >
               <ChevronLeft className="h-6 w-6" />
@@ -235,7 +264,7 @@ export default function SocialReels() {
               variant="ghost" 
               size="icon" 
               className="h-10 w-10 rounded-full bg-background/80 backdrop-blur-sm shadow-md hover:bg-background"
-              onClick={handleNextClick}
+              onClick={handleNext}
               aria-label="Next reel"
             >
               <ChevronRight className="h-6 w-6" />
@@ -243,17 +272,21 @@ export default function SocialReels() {
           </div>
 
           <div className="overflow-hidden py-8">
-            {/* Carousel container showing all three reels at once */}
             <div 
               ref={carouselRef}
               className="relative"
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
             >
               <motion.div 
                 className="flex gap-4 justify-center"
-                animate={{ x: `${slidePosition}%` }}
-                transition={{ type: "spring", stiffness: 200, damping: 30 }}
+                style={{
+                  transform: `translateX(-${currentIndex * 33.333}%)`,
+                  transition: transitionEnabled ? 'transform 0.3s ease-out' : 'none',
+                }}
               >
-                {extendedReels.map((reel, index) => (
+                {getVisibleReels().map((reel, index) => (
                   <Card 
                     key={`${reel.id}-${index}`}
                     className="flex-shrink-0 w-64 overflow-hidden cursor-pointer border-primary/10 hover:border-primary/30 transition-all"

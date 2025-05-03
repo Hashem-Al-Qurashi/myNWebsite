@@ -1,48 +1,20 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { motion } from "framer-motion";
+import { useNavigate } from "wouter";
 
 export default function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [, navigate] = useNavigate();
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
-    setError("");
-    
-    try {
-      const response = await fetch('/api/auth/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password }),
-      });
-      
-      const data = await response.json();
-      
-      if (!response.ok) {
-        throw new Error(data.message || 'Login failed');
-      }
-      
-      // Store token in localStorage
-      localStorage.setItem('token', data.token);
-      localStorage.setItem('user', JSON.stringify(data.user));
-      
-      // Redirect to dashboard or home page
-      window.location.href = '/dashboard';
-    } catch (err: any) {
-      setError(err.message || 'An error occurred during sign in');
-    } finally {
-      setLoading(false);
-    }
+    // Simple navigation without auth
+    navigate('/dashboard');
   };
 
   return (
@@ -63,11 +35,6 @@ export default function SignIn() {
           <CardContent>
             <form onSubmit={handleSubmit}>
               <div className="space-y-4">
-                {error && (
-                  <div className="p-3 bg-red-500/10 border border-red-500/50 rounded text-red-600 text-sm">
-                    {error}
-                  </div>
-                )}
                 <div className="space-y-2">
                   <Label htmlFor="email">Email</Label>
                   <Input
@@ -90,9 +57,7 @@ export default function SignIn() {
                     required
                   />
                 </div>
-                <Button type="submit" className="w-full" disabled={loading}>
-                  {loading ? "Signing in..." : "Sign In"}
-                </Button>
+                <Button type="submit" className="w-full">Sign In</Button>
               </div>
             </form>
           </CardContent>

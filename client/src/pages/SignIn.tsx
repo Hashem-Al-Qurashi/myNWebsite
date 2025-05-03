@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -18,17 +19,17 @@ export default function SignIn() {
   };
 
   return (
-    <div className="min-h-[calc(100vh-5rem)] flex items-center justify-center bg-[#f8f9fa]"> {/* Lightened background */}
+    <div className="min-h-[calc(100vh-5rem)] flex items-center justify-center bg-background">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         className="w-full max-w-md p-4"
       >
-        <Card className="border border-primary/10 bg-[#f2f7fa] backdrop-blur-sm"> {/* Lightened card background */}
-          <CardHeader className="text-center space-y-1">
-            <CardTitle className="text-2xl font-bold">Sign In</CardTitle>
-            <CardDescription>
+        <Card className="border border-primary/10 bg-card/50 backdrop-blur-sm">
+          <CardHeader className="space-y-1">
+            <CardTitle className="text-2xl font-bold text-center">Sign In</CardTitle>
+            <CardDescription className="text-center">
               Enter your credentials to access your account
             </CardDescription>
           </CardHeader>

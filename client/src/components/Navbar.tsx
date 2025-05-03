@@ -10,7 +10,7 @@ export default function Navbar() {
     // Check for dark mode preference on initial load
     const savedTheme = localStorage.getItem("theme");
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    
+
     if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
       document.documentElement.classList.add("dark");
       return true;
@@ -31,7 +31,7 @@ export default function Navbar() {
   const toggleDarkMode = () => {
     const newMode = !isDarkMode;
     setIsDarkMode(newMode);
-    
+
     if (newMode) {
       document.documentElement.classList.add("dark");
       localStorage.setItem("theme", "dark");
@@ -40,7 +40,7 @@ export default function Navbar() {
       localStorage.setItem("theme", "light");
     }
   };
-  
+
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
   };
@@ -67,8 +67,8 @@ export default function Navbar() {
                 { name: "Courses", path: "/courses" },
                 { name: "About", path: "/about" },
               ].map((item) => (
-                <Link key={item.path} href={item.path}>
-                  <div className="relative group py-2 cursor-pointer">
+                <div key={item.path} className="relative group py-2 cursor-pointer">
+                  <Link href={item.path}>
                     <span className="text-foreground/80 group-hover:text-foreground transition-colors">
                       {item.name}
                     </span>
@@ -81,8 +81,8 @@ export default function Navbar() {
                       whileHover={{ scaleX: 1 }}
                       transition={{ duration: 0.2 }}
                     />
-                  </div>
-                </Link>
+                  </Link>
+                </div>
               ))}
             </nav>
 
@@ -104,9 +104,9 @@ export default function Navbar() {
                 <a href="/signin">Sign In</a>
               </Button>
               <Button variant="ghost" size="sm" className="hidden md:flex" asChild>
-                
+
               </Button>
-              
+
               {/* Mobile menu toggle button */}
               <Button
                 variant="ghost"
@@ -123,7 +123,7 @@ export default function Navbar() {
             </div>
           </div>
         </div>
-        
+
         {/* Mobile Navigation Menu */}
         {isMobileMenuOpen && (
           <motion.div 
@@ -137,9 +137,9 @@ export default function Navbar() {
               {[
                 { name: "Courses", path: "/courses" },
                 { name: "About", path: "/about" },
-                
+
                 { name: "Sign In", path: "/signin" },
-                
+
               ].map((item) => (
                 <Link key={item.path} href={item.path}>
                   <a 

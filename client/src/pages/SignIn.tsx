@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { motion } from "framer-motion";
-import { useNavigate } from "wouter";
+import { useLocation } from "wouter";
 
 export default function SignIn() {
   const [email, setEmail] = useState("");

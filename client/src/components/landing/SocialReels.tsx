@@ -38,8 +38,8 @@ const demoReels: SocialReel[] = [
   {
     id: "1",
     platform: "instagram",
-    embedUrl: "https://www.instagram.com/reel/DAV9stIvBZB/?utm_source=ig_embed&amp;utm_campaign=loading" ,
-    thumbnail: "/placeholder.jpg", // Using placeholder image
+    embedUrl: "https://www.instagram.com/reel/DImHiDygv9z/?utm_source=ig_embed&utm_campaign=loading",
+    thumbnail: "/placeholder.jpg",
     title: "IELTS Speaking Tips"
   },
   {
@@ -216,11 +216,18 @@ export default function SocialReels() {
               </Button>
               <div className="bg-card rounded-xl overflow-hidden">
                 <div className="aspect-[9/16] w-full">
-                  <iframe 
-                    src={activeReel.embedUrl} 
-                    className="w-full h-full border-0" 
-                    allowFullScreen
-                  ></iframe>
+                  <blockquote 
+                    className="instagram-media" 
+                    data-instgrm-permalink={activeReel.embedUrl}
+                    data-instgrm-version="14"
+                  >
+                    <div style={{ padding: "16px" }}>
+                      <a href={activeReel.embedUrl} target="_blank" rel="noopener noreferrer">
+                        View this post on Instagram
+                      </a>
+                    </div>
+                  </blockquote>
+                  <script async src="//www.instagram.com/embed.js"></script>
                 </div>
               </div>
             </motion.div>

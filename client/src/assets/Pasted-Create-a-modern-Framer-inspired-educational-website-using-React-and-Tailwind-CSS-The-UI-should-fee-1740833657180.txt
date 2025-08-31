@@ -1,0 +1,44 @@
+Create a modern, Framer-inspired educational website using React and Tailwind CSS. The UI should feel premium, minimal, and highly interactive, with a SaaS-like experience. Focus on clean typography, soft gradients, and smooth animations. The design should be visually engaging yet functional for learning. Follow these details:
+1️⃣ Landing Page (First Impression Matters)
+
+✅ Full-screen hero section with a sleek gradient background (soft neon or pastel)
+✅ Large, bold headline (e.g., “Master Skills. Faster.”)
+✅ Call-to-Action (CTA) Button with hover and micro-interaction effects
+✅ Animated course preview (small demo cards or interactive scroll)
+✅ Glassmorphism effect for cards (backdrop-filter: blur(10px))
+✅ Smooth fade-in animations (Framer Motion style)
+2️⃣ Course Page (Learning Experience)
+
+✅ Split Layout:
+
+    Left Sidebar: Collapsible course navigation
+    Main Content Area: Video player + interactive markdown notes
+    Right Sidebar: AI tutor/chat assistant for quick help
+    ✅ Live code playground (for coding-related topics)
+    ✅ Minimalist quiz pop-ups with smooth transitions
+
+3️⃣ Student Dashboard (Personalized Learning)
+
+✅ Personal progress tracker (circular or linear progress bar)
+✅ Ongoing courses section with interactive cards
+✅ Gamification Elements (Badges, XP, Streaks)
+✅ AI-powered course recommendations
+4️⃣ Search & Course Discovery
+
+✅ Framer-style search bar with autocomplete
+✅ Dynamic filters (Category, Difficulty, Duration, Instructor)
+✅ Masonry grid layout for course cards (smooth hover effects)
+5️⃣ Community & Discussion
+
+✅ Clean, Discord-style forum UI for Q&A
+✅ Dark & Light Mode Support (Toggle button)
+✅ Upvote & reply system with smooth animations
+🛠️ Design & Style Guide
+
+🎨 Modern soft gradients for backgrounds (Framer-style)
+🔵 Glassmorphism for panels (Blurred, semi-transparent cards)
+🌙 Dark mode with elegant pastel highlights
+🪄 Framer-motion-inspired smooth interactions
+💡 Typography: Use Inter or Satoshi for a clean look
+
+🛠 Use Tailwind CSS for styling and React for components. The UI should feel sleek, futuristic, and optimized for students. Keep animations smooth, buttons rounded, and transitions subtle but engaging. No outdated UI elements, only high-end SaaS-level design.

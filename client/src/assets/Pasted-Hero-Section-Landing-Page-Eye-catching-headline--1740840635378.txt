@@ -1,0 +1,64 @@
+Hero Section (Landing Page)
+
+    Eye-catching headline:
+    "احصل على درجتك المطلوبة في الآيلتس – بأسهل وأسرع طريقة!"
+    Subheadline:
+    "93% من طلابنا رفعوا درجتهم بمعدل +1.5 Band خلال 8 أسابيع فقط!"
+    Call to Action (CTA):
+        🔹 زر "سجل الآن واحجز استشارة مجانية!"
+        🔹 زر "تعرف على الدورة"
+    Background: High-quality image or animated gradient.
+
+2️⃣ Why Us? (ليش تختارنا؟)
+
+    Engaging, persuasive copy from my script (use bullet points & icons).
+    Key selling points: نتائج مضمونة، تدريب تفاعلي، متابعة شخصية، استراتيجيات فعالة.
+
+3️⃣ Course Details (تفاصيل الدورة)
+
+    Interactive accordion-style sections for each module:
+    ✅ تقييم احترافي لمستواك
+    ✅ استراتيجيات مذاكرة ذكية
+    ✅ خطط دراسية مخصصة
+    ✅ تقنيات لحل الأسئلة بسرعة
+    ✅ اختبارات محاكية واقعية
+    ✅ متابعة وتقييم شخصي
+    Add relevant images/icons to make it visually appealing.
+
+4️⃣ Success Stories (قصص النجاح)
+
+    Testimonials with real student results (carousel or card layout).
+    Before/after IELTS scores visual representation.
+
+5️⃣ FAQs (الأسئلة الشائعة)
+
+    Expandable Q&A section to address common concerns.
+
+6️⃣ Call to Action (حجز استشارة مجانية)
+
+    Bold statement: “💥 المقاعد محدودة – لا تضيع الفرصة!”
+    Countdown timer for urgency (optional).
+    Easy signup form with name, email, phone number.
+
+7️⃣ Footer Section
+
+    Contact info, WhatsApp link, social media icons.
+    Terms & conditions, privacy policy.
+
+💡 Technical Requirements:
+
+✅ Use React (Next.js) or Tailwind CSS for a sleek, fast UI.
+✅ Include Framer Motion for subtle animations & smooth transitions.
+✅ SEO optimized – structured data, fast loading, mobile-friendly.
+✅ Google Analytics & Facebook Pixel integration for tracking.
+✅ WhatsApp Chat Widget for direct communication.
+✅ Stripe / PayPal Integration (optional for paid courses).
+🎯 Final Request for Replit:
+
+    "Create a high-converting IELTS course website with a premium and trustworthy feel. Use a modern, elegant UI with smooth animations and a conversion-focused layout. The site should be fast, mobile-friendly, and visually engaging, with a clear Call-to-Action (CTA) that encourages signups.
+
+    Implement a structured, SEO-optimized design with sections: Hero, Why Us, Course Details, Success Stories, FAQs, and CTA. Ensure real testimonials, engaging icons, interactive elements, and a professional layout.
+
+    Tech stack: Next.js (or React) + Tailwind CSS + Framer Motion. Include Google Analytics, WhatsApp Chat, and email signup form. The design should reflect credibility, professionalism, and ease of navigation. Optimize for fast loading and mobile-first performance.
+
+    Deliver a polished, high-end feel with animations, a smooth user experience, and clear conversion paths."

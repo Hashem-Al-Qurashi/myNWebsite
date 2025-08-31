@@ -11,6 +11,7 @@ import SignUp from "@/pages/SignUp";
 import AssessmentQuiz from "@/pages/AssessmentQuiz";
 import AboutUs from "@/pages/AboutUs";
 import Courses from "@/pages/Courses"; // Added import for Courses page
+import Pricing from "@/pages/Pricing";
 
 function Router() {
   return (
@@ -22,6 +23,7 @@ function Router() {
       <Route path="/assessment" component={AssessmentQuiz} />
       <Route path="/about" component={AboutUs} />
       <Route path="/courses" component={Courses} /> {/* Added Courses route */}
+      <Route path="/pricing" component={Pricing} />
       <Route component={NotFound} />
     </Switch>
   );

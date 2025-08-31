@@ -44,6 +44,7 @@ export default function Navbar() {
             <nav className="hidden md:flex gap-6">
               {[
                 { name: "Courses", path: "/courses" },
+                { name: "Pricing", path: "/pricing" },
                 { name: "About", path: "/about" },
               ].map((item) => (
                 <div key={item.path} className="relative group py-2 cursor-pointer">
@@ -115,10 +116,9 @@ export default function Navbar() {
             <div className="flex flex-col space-y-4">
               {[
                 { name: "Courses", path: "/courses" },
+                { name: "Pricing", path: "/pricing" },
                 { name: "About", path: "/about" },
-
                 { name: "Sign In", path: "/signin" },
-
               ].map((item) => (
                 <Link key={item.path} href={item.path}>
                   <span className={`block px-2 py-2 text-foreground/80 hover:text-foreground hover:bg-accent/50 rounded-md ${
